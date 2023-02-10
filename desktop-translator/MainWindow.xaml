@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:desktop_translator"
         xmlns:viewModel="clr-namespace:desktop_translator.MVVM.ViewModel"
         mc:Ignorable="d" 
-        Height="300" Width="700"
+        Height="340" Width="700"
         Background="Transparent"
         WindowStyle="None"
         AllowsTransparency="True" >
@@ -15,52 +15,96 @@
         <viewModel:MainViewModel/>
     </Window.DataContext>
 
-    <Border Background="#15A"
-            CornerRadius="10">
-        <Grid Cursor="">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="130" />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
+    <!--DEFINICJA SIATKI-->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="10" />
+            <RowDefinition />
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="110" />
-                <RowDefinition Height="190" />
-            </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
 
-            <Image x:Name="app_logo" 
-                   Source="Images/google_translate_icon.png" 
-                   Grid.Row="0" 
-                   Margin="0,15,0,0" Width="100" HorizontalAlignment="Center" Height="100"/>
+        <!--RAMA TOP BAR-->
+        <Border Background="#D9FFFFFF"
+                Grid.RowSpan="2"
+                Grid.ColumnSpan="4"
+                CornerRadius="15,15,0,0">
+            <StackPanel >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                </Grid>
+            </StackPanel>
+        </Border>
 
-            <StackPanel Grid.Row="1">
-                <RadioButton Content="Translate"
+        <!--RAMA PRZYCISKÓW MENU-->
+        <Border Background="#D9FFFFFF"
+                Grid.Row="2"
+                Grid.RowSpan="3"
+                CornerRadius="0,0,0,20">
+
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Image x:Name="logo"
+                       Source="Images/google_translate_icon.png" 
+                       Width="90"
+                       Height="90" 
+                       Margin="10,10,20,0"
+                       />
+                <StackPanel Grid.Row="1"
+                            Margin="0,10,0,0">
+                    <RadioButton Content="Translate"
                              Height="40"
                              FontSize="20"
                              Style="{StaticResource MenuButtonTheme}" Checked="RadioButton_Checked"
                              IsChecked="True"
                              Command="{Binding TranslateViewCommand}"/>
-
-                <RadioButton Content="History"
+                    <RadioButton Content="History"
                              Height="40"
                              Style="{StaticResource MenuButtonTheme}" Checked="RadioButton_Checked"
                              Command="{Binding HistoryViewCommand}"/>
 
-                <RadioButton Content="Options"
+                    <RadioButton Content="Options"
                              Height="40"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding OptionsViewCommand}"/>
 
-                <RadioButton Content="Info"
+                    <RadioButton Content="Info"
                              Height="40"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding InfoViewCommand}"/>
-            </StackPanel>
+                </StackPanel>
+            </Grid>
+        </Border>
 
-            <ContentControl Grid.RowSpan="2"
-                            Grid.Column="1"
-                            Margin="10"
-                            Content="{Binding CurrentView}"/>
-        </Grid>
-    </Border>
+        <!--RAMA AKTYWNEGO WIDOKU-->
+        <Border Background="#15A"
+                Grid.Row="1"
+                Grid.RowSpan="4"
+                Grid.Column="1"
+                Grid.ColumnSpan="3"
+                CornerRadius="10,10,20,0">
+
+        </Border>
+
+        <ContentControl Content="{Binding CurrentView}"
+                        Grid.Row="2"
+                        Grid.RowSpan="2"
+                        Grid.Column="2"/>
+    </Grid>
 </Window>

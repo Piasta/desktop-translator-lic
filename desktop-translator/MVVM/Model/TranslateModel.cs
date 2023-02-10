@@ -1,37 +1,61 @@
-﻿using System;
+﻿using desktop_translator.Core;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
 namespace desktop_translator.MVVM.Model
 {
-    public class TranslateModel 
+    class TranslateModel : ObservableObject
     {
-        private string rawText;
+        private string _rawText;
 
         public string RawText
         {
-            get { return rawText; }
+            get { return _rawText; }
             set
             {
-                rawText = value;
+                _rawText = value;
                 OnPropertyChanged("RawText");
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        private string _translatedText;
 
-        protected virtual void OnPropertyChanged(string propertyName)
+        public string TranslatedText
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            get { return _translatedText; }
+            set
+            {
+                _translatedText = value;
+                OnPropertyChanged("TranslatedText");
+            }
         }
 
         public void Translate()
         {
-            MessageBox.Show(rawText);
+            var toLanguage = "fr";
+            var fromLanguage = "en";
+
+            var url = $"https://translate.googleapis.com/translate_a/single?client=gtx&sl={fromLanguage}&tl={toLanguage}&dt=t&q={WebUtility.UrlEncode(RawText)}";
+            var webClient = new WebClient
+            {
+                Encoding = System.Text.Encoding.UTF8
+            };
+            var result = webClient.DownloadString(url);
+            try
+            {
+                result = result.Substring(4, result.IndexOf("\"", 4, StringComparison.Ordinal) - 4);
+                TranslatedText = result;
+            }
+            catch
+            {
+                MessageBox.Show("Error");
+            }
         }
     }
 }

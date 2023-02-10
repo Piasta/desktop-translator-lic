@@ -57,7 +57,7 @@
   <Class Name="desktop_translator.MVVM.ViewModel.TranslateViewModel">
     <Position X="12.75" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAQAAIAAAAAACAAAAAgEAAAAAAA=</HashCode>
       <FileName>MVVM\ViewModel\TranslateViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>

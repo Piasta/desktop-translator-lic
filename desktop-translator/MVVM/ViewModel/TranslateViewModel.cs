@@ -1,16 +1,11 @@
 ﻿using desktop_translator.Core;
 using desktop_translator.MVVM.Model;
 using System;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Net;
-using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace desktop_translator.MVVM.ViewModel
 {
-    public class TranslateViewModel
+    class TranslateViewModel : ObservableObject
     {
         private TranslateModel translateModel;
 
@@ -27,14 +22,6 @@ namespace desktop_translator.MVVM.ViewModel
         public TranslateViewModel()
         {
             TranslateModel = new TranslateModel();
-            
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         public ICommand TranslateCommand => new RelayCommand(Translate, CanExecuteTranslate);
@@ -50,4 +37,4 @@ namespace desktop_translator.MVVM.ViewModel
         }
     }
 }
- 
+

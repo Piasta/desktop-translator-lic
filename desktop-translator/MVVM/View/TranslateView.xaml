@@ -9,37 +9,41 @@
              Background="Transparent"
              >
 
-    <Border Background="#15A">
+    <Border>
 
         <Grid Cursor="">
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition Height="130"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="170"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
             <TextBox x:Name="RawTextBox" Grid.Row="1"
-                 VerticalAlignment="Top"
+                 VerticalAlignment="Center"
                  HorizontalAlignment="Center"
-                 Margin="5"
+                 Margin="0,-90,0,0"
                  Style="{StaticResource ModernTextBox}"
                  Text="{Binding RawText}"
-                 />
+                 DataContext="{Binding TranslateModel}"/>
+
 
             <TextBox x:Name="translatedTextBox" Grid.Row="1"
-                 VerticalAlignment="Bottom"
+                 VerticalAlignment="Center"
                  HorizontalAlignment="Center"
-                 Margin="5"
-                 Style="{StaticResource ModernTextBox}"/>
+                 Margin="0,90,0,0"
+                 Style="{StaticResource ModernTextBox}"
+                 Text="{Binding TranslatedText, Mode=TwoWay}"
+                 DataContext="{Binding TranslateModel}"/>
 
             <Button x:Name="translateButton" Grid.Row="2"
                     Content="Translate"
-                    Height="30"
-                    Width="130"
+                    Height="40"
+                    Width="150"
+                    Margin="0,15,0,0"
+                    VerticalAlignment="Top"
                     Style="{StaticResource ViewsButtonTheme}"
                     Command="{Binding TranslateCommand}"
                     />
-
         </Grid>
     </Border>
 </UserControl>

@@ -12,7 +12,7 @@ namespace desktop_translator.MVVM.ViewModel
 
         public TranslateViewModel TranslateVM { get; set; }
         public HistoryViewModel HistoryVM { get; set; }
-        public OptionsViewModel OptionsVM{ get; set; }
+        public OptionsViewModel OptionsVM { get; set; }
         public InfoViewModel InfoVM { get; set; }
 
 
@@ -22,7 +22,8 @@ namespace desktop_translator.MVVM.ViewModel
         {
             get { return _currentView; }
             set
-            { _currentView = value;
+            {
+                _currentView = value;
                 OnPropertyChanged();
             }
         }
