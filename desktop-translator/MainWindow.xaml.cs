@@ -29,5 +29,10 @@ namespace desktop_translator
         {
            
         }
+
+        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
     }
 }

@@ -1,11 +1,6 @@
 ﻿using desktop_translator.Core;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace desktop_translator.MVVM.Model
@@ -38,7 +33,7 @@ namespace desktop_translator.MVVM.Model
 
         public void Translate()
         {
-            var toLanguage = "fr";
+            var toLanguage = "pl";
             var fromLanguage = "en";
 
             var url = $"https://translate.googleapis.com/translate_a/single?client=gtx&sl={fromLanguage}&tl={toLanguage}&dt=t&q={WebUtility.UrlEncode(RawText)}";
@@ -56,6 +51,8 @@ namespace desktop_translator.MVVM.Model
             {
                 MessageBox.Show("Error");
             }
+
+            
         }
     }
 }

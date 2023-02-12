@@ -13,5 +13,8 @@ namespace desktop_translator
     /// </summary>
     public partial class App : Application
     {
+        static string DatabaseName = "History.db";
+        static string FolderPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+        public static string DbPath = System.IO.Path.Combine(FolderPath, DatabaseName);
     }
 }
