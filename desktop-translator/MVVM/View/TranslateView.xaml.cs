@@ -26,6 +26,10 @@ namespace desktop_translator.MVVM.View
         public TranslateView()
         {
             InitializeComponent();
+
+            TranslateViewModel TranslateViewModel = new TranslateViewModel();
+            HistoryViewModel HistoryViewModel = new HistoryViewModel();
+
         }
 
         private void RawTextBox_TextInput(object sender, TextCompositionEventArgs e)

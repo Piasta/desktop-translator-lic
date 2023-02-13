@@ -50,9 +50,7 @@ namespace desktop_translator.MVVM.Model
             catch
             {
                 MessageBox.Show("Error");
-            }
-
-            
+            }            
         }
     }
 }
