@@ -9,7 +9,7 @@ namespace desktop_translator.MVVM.Model
     {
         public void Test()
         {
-            MessageBox.Show("Działą");
+            MessageBox.Show("Work!");
         }
     }
 }

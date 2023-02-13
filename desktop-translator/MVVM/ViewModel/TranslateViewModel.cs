@@ -38,8 +38,17 @@ namespace desktop_translator.MVVM.ViewModel
             HistoryModel = new HistoryModel();
         }
 
+
         public ICommand TranslateCommand => new RelayCommand(Translate, CanExecuteTranslate);
+
+        public ICommand TestCommand => new RelayCommand(Test, CanExecuteTest);
+
         private bool CanExecuteTranslate(object parameter)
+        {
+            return true;
+        }
+
+        private bool CanExecuteTest(object parameter)
         {
             return true;
         }
@@ -47,14 +56,6 @@ namespace desktop_translator.MVVM.ViewModel
         private void Translate(object parameter)
         {
             TranslateModel.Translate();
-        }
-
-
-        public ICommand TestCommand => new RelayCommand(Test, CanExecuteTest);
-
-        private bool CanExecuteTest(object parameter)
-        {
-            return true;
         }
 
         private void Test(object parameter)
