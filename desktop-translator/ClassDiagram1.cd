@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="desktop_translator.MVVM.ViewModel.MainViewModel">
-    <Position X="8.25" Y="6.25" Width="1.5" />
+    <Position X="10.25" Y="10.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>gAAAAAACAAAAABEAAAMAACAQAAAAAAAAAAAAAAAgIAA=</HashCode>
       <FileName>MVVM\ViewModel\MainViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="desktop_translator.Core.ObservableObject">
-    <Position X="8.25" Y="4" Width="1.5" />
+    <Position X="10.25" Y="7.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Core\ObservableObject.cs</FileName>
@@ -16,49 +16,113 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="System.Object">
-    <Position X="8.25" Y="0.75" Width="1.5" />
+    <Position X="10.25" Y="4.25" Width="1.5" />
     <TypeIdentifier />
   </Class>
   <Class Name="desktop_translator.Core.RelayCommand">
-    <Position X="1.5" Y="4" Width="1.5" />
+    <Position X="10.25" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAEACAAQAAECAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Core\RelayCommand.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
+  <Class Name="desktop_translator.Properties.Resources">
+    <Position X="7.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="desktop_translator.Core.CommandGroup">
+    <Position X="12.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAQAAEAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Core\CommandGroup.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
   <Class Name="desktop_translator.MVVM.ViewModel.HistoryViewModel" Collapsed="true">
-    <Position X="3.75" Y="4" Width="1.5" />
+    <Position X="14.25" Y="9.25" Width="1.5" />
+    <InheritanceLine Type="desktop_translator.Core.ObservableObject" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="11.75" Y="8.75" />
+        <Point X="15" Y="8.75" />
+        <Point X="15" Y="9.25" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MVVM\ViewModel\HistoryViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="desktop_translator.MVVM.ViewModel.TranslateViewModel">
+    <Position X="12.25" Y="9.25" Width="1.5" />
+    <InheritanceLine Type="desktop_translator.Core.ObservableObject" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="11.75" Y="8.937" />
+        <Point X="13" Y="8.937" />
+        <Point X="13" Y="9.25" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>KAAAACAAACAgAAAAAAQAAIAAAAEACAAAAAgECAAAAAA=</HashCode>
+      <FileName>MVVM\ViewModel\TranslateViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="desktop_translator.MVVM.ViewModel.InfoViewModel" Collapsed="true">
-    <Position X="6" Y="4" Width="1.5" />
+    <Position X="16.25" Y="9.25" Width="1.5" />
+    <InheritanceLine Type="desktop_translator.Core.ObservableObject" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="11.75" Y="8.563" />
+        <Point X="17" Y="8.563" />
+        <Point X="17" Y="9.25" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MVVM\ViewModel\InfoViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="desktop_translator.MVVM.ViewModel.OptionsViewModel" Collapsed="true">
-    <Position X="10.5" Y="4" Width="1.5" />
+    <Position X="18.25" Y="9.25" Width="1.5" />
+    <InheritanceLine Type="desktop_translator.Core.ObservableObject" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="11.75" Y="8.375" />
+        <Point X="19" Y="8.375" />
+        <Point X="19" Y="9.25" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MVVM\ViewModel\OptionsViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="desktop_translator.Properties.Resources">
-    <Position X="15" Y="4" Width="1.5" />
+  <Class Name="desktop_translator.MVVM.Model.HistoryModel">
+    <Position X="6" Y="9.25" Width="1.5" />
+    <InheritanceLine Type="desktop_translator.Core.ObservableObject" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="10.25" Y="8.75" />
+        <Point X="6.688" Y="8.75" />
+        <Point X="6.688" Y="9.25" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>MVVM\Model\HistoryModel.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="desktop_translator.MVVM.ViewModel.TranslateViewModel">
-    <Position X="12.75" Y="4" Width="1.5" />
+  <Class Name="desktop_translator.MVVM.Model.TranslateModel">
+    <Position X="8" Y="9.25" Width="1.5" />
+    <InheritanceLine Type="desktop_translator.Core.ObservableObject" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="10.25" Y="8.937" />
+        <Point X="8.688" Y="8.937" />
+        <Point X="8.688" Y="9.25" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAQAAIAAAAAACAAAAAgEAAAAAAA=</HashCode>
-      <FileName>MVVM\ViewModel\TranslateViewModel.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAABAAAAAAAABAgAEAAAAAAA=</HashCode>
+      <FileName>MVVM\Model\TranslateModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
