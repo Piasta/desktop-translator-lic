@@ -76,9 +76,11 @@
                        Height="90" 
                        Margin="10,10,20,0"
                        />
-                    <Border.BitmapEffect>
-                        <DropShadowBitmapEffect ShadowDepth="10" Opacity="0.5" />
-                    </Border.BitmapEffect>
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="30"
+                                          Opacity="0.8"
+                                          Color="Black"/>
+                    </Border.Effect>
                 </Border>
                 
                 
@@ -88,13 +90,13 @@
                     <RadioButton Content="Translate"
                              Height="40"
                              FontSize="20"
-                             Style="{StaticResource MenuButtonTheme}" Checked="RadioButton_Checked"
+                             Style="{StaticResource MenuButtonTheme}"
                              IsChecked="True"
                              Command="{Binding TranslateViewCommand}"/>
                     <RadioButton Content="History"
                              Height="40"
-                             Style="{StaticResource MenuButtonTheme}" Checked="RadioButton_Checked"
-                             Command="{Binding HistoryViewCommand}"/>
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding HistoryCommandGroup}"/>
 
                     <RadioButton Content="Options"
                              Height="40"
@@ -116,9 +118,10 @@
                 Grid.Column="1"
                 Grid.ColumnSpan="3"
                 CornerRadius="20,20,20,20">
-            <Border.BitmapEffect>
-                <DropShadowBitmapEffect ShadowDepth="10" Opacity="0.5"/>
-            </Border.BitmapEffect>
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="40"
+                                  Color="Black"/>
+            </Border.Effect>
 
         </Border>
 

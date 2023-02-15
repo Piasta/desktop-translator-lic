@@ -41,14 +41,14 @@ namespace desktop_translator.MVVM.ViewModel
 
         public ICommand TranslateCommand => new RelayCommand(Translate, CanExecuteTranslate);
 
-        public ICommand TestCommand => new RelayCommand(Test, CanExecuteTest);
+        public ICommand DbInsertCommand => new RelayCommand(DbInsert, CanExecuteInsert);
 
         private bool CanExecuteTranslate(object parameter)
         {
             return true;
         }
 
-        private bool CanExecuteTest(object parameter)
+        private bool CanExecuteInsert(object parameter)
         {
             return true;
         }
@@ -58,9 +58,9 @@ namespace desktop_translator.MVVM.ViewModel
             TranslateModel.Translate();
         }
 
-        private void Test(object parameter)
+        private void DbInsert(object parameter)
         {
-            HistoryModel.Test();
+            HistoryModel.DbInsert(TranslateModel.RawText, TranslateModel.TranslatedText);
         }
 
         private CommandGroup _commandGroup;
@@ -74,7 +74,7 @@ namespace desktop_translator.MVVM.ViewModel
                     _commandGroup = new CommandGroup(new List<ICommand>
                 {
                     TranslateCommand,
-                    TestCommand
+                    DbInsertCommand
                     });
                 }
                 return _commandGroup;

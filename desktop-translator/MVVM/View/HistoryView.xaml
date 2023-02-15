@@ -8,7 +8,9 @@
              d:DesignHeight="300" d:DesignWidth="570"
              Background="Transparent">
 
-    <Border Background="#75A">
-
+    <Border>
+        <Grid>
+            <DataGrid ItemsSource="{Binding Path=Phrases}"/>
+        </Grid>
     </Border>
 </UserControl>

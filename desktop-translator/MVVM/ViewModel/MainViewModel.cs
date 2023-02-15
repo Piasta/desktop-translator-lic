@@ -1,5 +1,7 @@
 ﻿using desktop_translator.Core;
 using System;
+using System.Collections.Generic;
+using System.Windows.Input;
 
 namespace desktop_translator.MVVM.ViewModel
 {
@@ -53,6 +55,24 @@ namespace desktop_translator.MVVM.ViewModel
             InfoViewCommand = new RelayCommand(o => {
                 CurrentView = InfoVM;
             });
+        }
+
+        private CommandGroup _historyCommandGroup;
+
+        public CommandGroup HistoryCommandGroup
+        {
+            get
+            {
+                if (_historyCommandGroup == null)
+                {
+                    _historyCommandGroup = new CommandGroup(new List<ICommand>
+                {
+                    HistoryViewCommand,
+                    HistoryVM.DbViewCommand
+                    });
+                }
+                return _historyCommandGroup;
+            }
         }
     }
 }
