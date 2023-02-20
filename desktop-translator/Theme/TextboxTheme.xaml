@@ -18,7 +18,7 @@
                                      Padding="5"
                                      Foreground="#CFCFCF"
                                      FontSize="16"
-                                     Text="{Binding Text, RelativeSource={RelativeSource TemplatedParent}}"
+                                     Text="{Binding Text, RelativeSource={RelativeSource TemplatedParent}, UpdateSourceTrigger=PropertyChanged}"
                                      x:Name="TextBox"/>
                             <TextBlock IsHitTestVisible="False"
                                        Text="Type what do want to translate"

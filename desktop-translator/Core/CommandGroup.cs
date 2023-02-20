@@ -8,43 +8,46 @@ using System.Windows.Input;
 namespace desktop_translator.Core
 {
     public class CommandGroup : ICommand
+    {
+        private readonly List<ICommand> _commands;
+
+        public CommandGroup(IEnumerable<ICommand> commands)
         {
-            private List<ICommand> _commands;
+            _commands = commands.ToList();
+        }
 
-            public CommandGroup(List<ICommand> commands)
-            {
-                _commands = commands;
-            }
+        public bool CanExecute(object parameter)
+        {
+            return _commands.Any(c => c.CanExecute(parameter));
+        }
 
-            public event EventHandler CanExecuteChanged
+        public void Execute(object parameter)
+        {
+            foreach (var command in _commands)
             {
-                add
-                {
-                    foreach (var command in _commands)
-                    {
-                        command.CanExecuteChanged += value;
-                    }
-                }
-                remove
-                {
-                    foreach (var command in _commands)
-                    {
-                        command.CanExecuteChanged -= value;
-                    }
-                }
-            }
-
-            public bool CanExecute(object parameter)
-            {
-                return _commands.All(c => c.CanExecute(parameter));
-            }
-
-            public void Execute(object parameter)
-            {
-                foreach (var command in _commands)
+                if (command.CanExecute(parameter))
                 {
                     command.Execute(parameter);
                 }
             }
         }
+
+        public event EventHandler CanExecuteChanged
+        {
+            add
+            {
+                foreach (var command in _commands)
+                {
+                    command.CanExecuteChanged += value;
+                }
+            }
+            remove
+            {
+                foreach (var command in _commands)
+                {
+                    command.CanExecuteChanged -= value;
+                }
+            }
+        }
     }
+}

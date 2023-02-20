@@ -8,9 +8,9 @@ namespace desktop_translator.Core
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected void OnPropertyChanged([CallerMemberName] string name = null)
+        protected void OnPropertyChanged(string propertyName)
         {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

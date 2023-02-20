@@ -9,7 +9,8 @@
         Height="340" Width="700"
         Background="Transparent"
         WindowStyle="None"
-        AllowsTransparency="True" >
+        AllowsTransparency="True" 
+        Focusable="True">
 
     <Window.DataContext>
         <viewModel:MainViewModel/>

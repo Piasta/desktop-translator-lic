@@ -2,6 +2,7 @@
 using desktop_translator.MVVM.Model;
 using System;
 using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Input;
 
 namespace desktop_translator.MVVM.ViewModel
@@ -63,21 +64,30 @@ namespace desktop_translator.MVVM.ViewModel
             HistoryModel.DbInsert(TranslateModel.RawText, TranslateModel.TranslatedText);
         }
 
-        private CommandGroup _commandGroup;
+        private CommandGroup _translateCommandGroup;
 
-        public CommandGroup CommandGroup
+        public CommandGroup TranslateCommandGroup
         {
             get
             {
-                if (_commandGroup == null)
+                if (_translateCommandGroup == null)
                 {
-                    _commandGroup = new CommandGroup(new List<ICommand>
+                    _translateCommandGroup = new CommandGroup(new List<ICommand>
                 {
                     TranslateCommand,
                     DbInsertCommand
                     });
                 }
-                return _commandGroup;
+                return _translateCommandGroup;
+            }
+        }
+        
+        public void HandleHotKey(object parameter, KeyEventArgs e)
+        {
+            if (e.Key == Key.V && Keyboard.Modifiers == ModifierKeys.Control)
+            {
+                TranslateModel.RawText = Clipboard.GetText();
+                TranslateCommandGroup.Execute(null);
             }
         }
     }

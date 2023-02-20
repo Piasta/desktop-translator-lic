@@ -29,6 +29,11 @@ namespace desktop_translator.MVVM.Model
                 MessageBox.Show("DbInsertBREAK");
             }
             m_dbConnection.Close();
+
+            TranslateModel TranslateModel = new TranslateModel();
+
+            Console.WriteLine("CHUJ" + TranslateModel.TranslatedText);
+
         }
 
         public DataTable table;

@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="desktop_translator.MVVM.ViewModel.MainViewModel">
-    <Position X="10.25" Y="10.75" Width="1.5" />
+    <Position X="10.25" Y="13" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gAAAAAACAAAAABEAAAMAACAQAAAAAAAAAAAAAAAgIAA=</HashCode>
+      <HashCode>gAAAAAASAAAAABEAAAMAACAQAAAAAAAAAAAAAAAgIIA=</HashCode>
       <FileName>MVVM\ViewModel\MainViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -34,14 +34,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="desktop_translator.Core.CommandGroup">
-    <Position X="12.5" Y="4.25" Width="1.5" />
+    <Position X="12.75" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAACAAQAAEAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
       <FileName>Core\CommandGroup.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="desktop_translator.MVVM.ViewModel.HistoryViewModel" Collapsed="true">
+  <Class Name="desktop_translator.MVVM.ViewModel.HistoryViewModel">
     <Position X="14.25" Y="9.25" Width="1.5" />
     <InheritanceLine Type="desktop_translator.Core.ObservableObject" FixedFromPoint="true" FixedToPoint="true">
       <Path>
@@ -51,7 +51,7 @@
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAEAAAgAAAAgAAAAAAAAAAAAAAAEAAEAAAAQAAAABAA=</HashCode>
       <FileName>MVVM\ViewModel\HistoryViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -65,7 +65,7 @@
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>KAAAACAAACAgAAAAAAQAAIAAAAEACAAAAAgECAAAAAA=</HashCode>
+      <HashCode>KAAAACgAAAAgAAAAAAQAAIAAAAAACABAAAgEAAAAAAA=</HashCode>
       <FileName>MVVM\ViewModel\TranslateViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -107,7 +107,7 @@
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <HashCode>AAAAAAgAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
       <FileName>MVVM\Model\HistoryModel.cs</FileName>
     </TypeIdentifier>
   </Class>

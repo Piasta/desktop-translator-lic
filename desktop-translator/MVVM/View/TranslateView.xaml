@@ -10,8 +10,14 @@
              Background="Transparent"
              >
 
+    <UserControl.InputBindings>
+        <KeyBinding Modifiers="Alt"
+                    Key="U"
+                    Command="{Binding TranslateCommandGroup}"/>
+    </UserControl.InputBindings>
+    
+    
     <Border>
-
         <Grid Cursor="">
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
@@ -24,8 +30,9 @@
                  HorizontalAlignment="Center"
                  Margin="0,-90,0,0"
                  Style="{StaticResource ModernTextBox}"
-                 Text="{Binding RawText}"
-                 DataContext="{Binding TranslateModel}"/>
+                 Text="{Binding RawText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 DataContext="{Binding TranslateModel}"
+                 />
 
 
             <TextBox x:Name="translatedTextBox" Grid.Row="1"
@@ -43,7 +50,7 @@
                     Margin="0,15,0,0"
                     VerticalAlignment="Top"
                     Style="{StaticResource ViewsButtonTheme}"
-                    Command="{Binding CommandGroup}">
+                    Command="{Binding TranslateCommandGroup}">
             </Button>
         </Grid>
     </Border>

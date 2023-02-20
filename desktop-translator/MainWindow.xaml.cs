@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using desktop_translator.MVVM.Model;
+using desktop_translator.MVVM.ViewModel;
 
 namespace desktop_translator
 {
@@ -23,6 +24,7 @@ namespace desktop_translator
     {
         public MainWindow()
         {
+            TranslateViewModel TranslateViewModel = new TranslateViewModel();
             InitializeComponent();
         }
 
