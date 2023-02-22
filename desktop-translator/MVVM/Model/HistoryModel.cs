@@ -3,6 +3,7 @@ using System;
 using System.Data;
 using System.Data.SQLite;
 using System.Windows;
+using System.Windows.Media;
 
 namespace desktop_translator.MVVM.Model
 {
@@ -67,6 +68,13 @@ namespace desktop_translator.MVVM.Model
             }
             m_dbConnection.Close();
         }
+
+        //private Brush _backgroundColor = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#15A"));
+        //public Brush BackgroundColor
+        //{
+        //    get { return _backgroundColor; }
+        //    set { _backgroundColor = value; OnPropertyChanged(nameof(BackgroundColor)); }
+        //}
     }
 }
 

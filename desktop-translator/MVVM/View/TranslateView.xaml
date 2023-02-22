@@ -29,7 +29,7 @@
                  VerticalAlignment="Center"
                  HorizontalAlignment="Center"
                  Margin="0,-90,0,0"
-                 Style="{StaticResource ModernTextBox}"
+                 Style="{StaticResource ModernTypeTextBox}"
                  Text="{Binding RawText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                  DataContext="{Binding TranslateModel}"
                  />
@@ -39,7 +39,7 @@
                  VerticalAlignment="Center"
                  HorizontalAlignment="Center"
                  Margin="0,90,0,0"
-                 Style="{StaticResource ModernTextBox}"
+                 Style="{StaticResource ModernTranslateTextBox}"
                  Text="{Binding TranslatedText, Mode=TwoWay}"
                  DataContext="{Binding TranslateModel}"/>
 

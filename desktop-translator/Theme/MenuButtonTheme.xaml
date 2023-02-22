@@ -4,10 +4,10 @@
     <Style BasedOn="{StaticResource {x:Type ToggleButton}}"
            TargetType="{x:Type RadioButton}"
            x:Key="MenuButtonTheme">
-        
+
         <Style.Setters>
             <Setter Property="Template">
-                
+
                 <Setter.Value>
                     <ControlTemplate TargetType="RadioButton">
 
@@ -24,24 +24,31 @@
                                        Margin="10,0,10,3"
                                        />
                         </Border>
-                        
+
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-            
+
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="BorderThickness" Value="1" />
             <Setter Property="Foreground" Value="#15A" />
-            
+
         </Style.Setters>
 
         <Style.Triggers>
-            
+
             <Trigger Property="IsChecked" Value="True">
                 <Setter Property="Background" Value="#15A" />
                 <Setter Property="Foreground" Value="White" />
+                <Setter Property="Effect">
+                    <Setter.Value>
+                        <DropShadowEffect ShadowDepth="0"
+                                          BlurRadius="44"
+                                          Opacity="0.65"/>
+                    </Setter.Value>
+                </Setter>
             </Trigger>
-            
+
         </Style.Triggers>
     </Style>
 

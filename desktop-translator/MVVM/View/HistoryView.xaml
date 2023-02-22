@@ -8,9 +8,40 @@
              d:DesignHeight="300" d:DesignWidth="570"
              Background="Transparent">
 
-    <Border>
-        <Grid>
-            <DataGrid ItemsSource="{Binding Path=Phrases}"/>
-        </Grid>
-    </Border>
+
+    <Grid>
+        <DataGrid ItemsSource="{Binding Path=Phrases}"
+                  AutoGenerateColumns="False" 
+                  IsReadOnly="True">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="No." 
+                                    Binding="{Binding Id}"
+                                    Width="40" >
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Header="Typed text" 
+                                    Binding="{Binding TypedText}" 
+                                    Width="*">
+
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="TextWrapping" Value="Wrap" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Header="Translated text" 
+                                    Binding="{Binding TranslatedText}" 
+                                    Width="*">
+
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="TextWrapping" Value="Wrap" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
 </UserControl>

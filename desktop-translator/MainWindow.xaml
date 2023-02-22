@@ -30,6 +30,7 @@
             <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="120"/>
             <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="10"/>
             <ColumnDefinition />
             <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="20"/>
@@ -37,116 +38,114 @@
 
         <!--MAIN BORDER-->
         <Border Grid.RowSpan="5"
-                Grid.ColumnSpan="6"
+                Grid.ColumnSpan="7"
                 Background="White"
                 Opacity="0.8"
                 CornerRadius="15, 15, 15, 15"/>
 
         
         <!--TOP BAR BORDER-->
-        <Border Background="Transparent"
-                Grid.ColumnSpan="6"
-                MouseLeftButtonDown="Border_MouseLeftButtonDown"/>
+        <Border x:Name="top_bar" 
+                Background="Transparent"
+                Grid.ColumnSpan="7"
+                MouseLeftButtonDown="Border_MouseLeftButtonDown">
+            
+            <!--TOP BAR BUTTONS GRID-->
+            <Grid Grid.Column="1">
+                
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
 
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="25"/>
+                </Grid.ColumnDefinitions>
 
-        <!--TOP BAR BUTTONS GRID-->
-        <Grid Background="Transparent"
-              Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="15"/>
-                <RowDefinition Height="20"/>
-            </Grid.RowDefinitions>
-
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="10"/>
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition Width="10"/>
-            </Grid.ColumnDefinitions>
-
-            <Grid x:Name="exit_bt"
+                <Grid x:Name="exit_bt"
                   Grid.Row="1"
                   Grid.Column="1"
                   MouseLeftButtonDown="exit_bt_close"
                   VerticalAlignment="Center"
                   HorizontalAlignment="Center">
 
-                <Rectangle Style="{StaticResource exit_bt_theme}"/>
+                    <Rectangle Style="{StaticResource exit_bt_theme}"/>
 
-                <Path StrokeThickness="2"
+                    <Path StrokeThickness="2"
                           Width="15"
                           Height="15"
                           Style="{StaticResource exit_bt_content}">
-                    <Path.Data>
-                        <GeometryGroup>
-                            <LineGeometry StartPoint="4.5,4.5" EndPoint="10.5,10.5"/>
-                            <LineGeometry StartPoint="4.5,10.5" EndPoint="10.5,4.5"/>
-                        </GeometryGroup>
-                    </Path.Data>
+                        <Path.Data>
+                            <GeometryGroup>
+                                <LineGeometry StartPoint="4.5,4.5" EndPoint="10.5,10.5"/>
+                                <LineGeometry StartPoint="4.5,10.5" EndPoint="10.5,4.5"/>
+                            </GeometryGroup>
+                        </Path.Data>
+                    </Path>
+                </Grid>
 
-                </Path>
-            </Grid>
-
-            <Grid x:Name="min_bt"
+                <Grid x:Name="min_bt"
                   Grid.Row="1"
                   Grid.Column="2"
                   MouseLeftButtonDown="min_bt_minimalize">
-                
-                <Rectangle Style="{StaticResource min_bt_theme}"/>
 
-                <Path StrokeThickness="2" Width="15" Height="15" Style="{StaticResource min_bt_content}">
-                    <Path.Data>
-                        <GeometryGroup>
-                            <LineGeometry StartPoint="11,7.5" EndPoint="4,7.5"/>
-                        </GeometryGroup>
-                    </Path.Data>
-                </Path>
-            </Grid>
+                    <Rectangle Style="{StaticResource min_bt_theme}"/>
 
+                    <Path StrokeThickness="2" Width="15" Height="15" Style="{StaticResource min_bt_content}">
+                        <Path.Data>
+                            <GeometryGroup>
+                                <LineGeometry StartPoint="11,7.5" EndPoint="4,7.5"/>
+                            </GeometryGroup>
+                        </Path.Data>
+                    </Path>
+                </Grid>
 
-            <Grid x:Name="max_bt" 
+                <Grid x:Name="max_bt" 
                     Grid.Row="1"
                     Grid.Column="3"
                     MouseLeftButtonDown="max_bt_maximalize">
 
+                    <Rectangle Style="{StaticResource max_bt_theme}"/>
 
-
-                <Rectangle Style="{StaticResource max_bt_theme}"/>
-
-                <Path Width="15" 
+                    <Path Width="15" 
                       Height="15" 
                       Style="{StaticResource max_bt_content}">
-                    
-                    <Path.Data>
-                        <GeometryGroup>
-                            <RectangleGeometry Rect="4.5,4.5,6,6"/>
-                        </GeometryGroup>
-                    </Path.Data>
-                </Path>
-            </Grid>
 
-            <Grid x:Name="pin_bt"
+                        <Path.Data>
+                            <GeometryGroup>
+                                <RectangleGeometry Rect="4.5,4.5,6,6"/>
+                            </GeometryGroup>
+                        </Path.Data>
+                    </Path>
+                </Grid>
+
+                <Grid x:Name="pin_bt"
                   Grid.Row="1"
                   Grid.Column="4"
                   MouseLeftButtonDown="pin_bt_topmost">
 
-                <Rectangle Style="{StaticResource pin_bt_theme}"/>
+                    <Rectangle Style="{StaticResource pin_bt_theme}"/>
 
-                <Path x:Name="pin_dot" 
+                    <Path x:Name="pin_dot" 
                     StrokeThickness="6" 
                       Width="15" 
                       Height="15" 
                       Style="{StaticResource pin_bt_off_content}">
-                    <Path.Data>
-                        <GeometryGroup>
-                            <EllipseGeometry Center="7.5,7.5"/>
-                        </GeometryGroup>
-                    </Path.Data>
-                </Path>
+                        <Path.Data>
+                            <GeometryGroup>
+                                <EllipseGeometry Center="7.5,7.5"/>
+                            </GeometryGroup>
+                        </Path.Data>
+                    </Path>
+                </Grid>
             </Grid>
-        </Grid>
+
+        </Border>
+        
 
         <!--MENU BUTTONS BORDER-->
 
@@ -163,7 +162,8 @@
                 <Image x:Name="logo"
                        Source="Images/google_translate_icon.png"
                        Width="90"
-                       HorizontalAlignment="Center"/>
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,10"/>
                 <Border.Effect>
                     <DropShadowEffect BlurRadius="44"
                                       Opacity="0.65"
@@ -188,7 +188,6 @@
                 <RadioButton Content="Info"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding InfoViewCommand}"/>
-
             </StackPanel>
         </Grid>
         
@@ -196,7 +195,7 @@
         <!--ACTIVE VIEW AROUND BORDER-->
         <Border Grid.Row="1"
                 Grid.RowSpan="3"
-                Grid.Column="2"
+                Grid.Column="3"
                 Grid.ColumnSpan="3"
                 Background="#15A"
                 CornerRadius="10">
@@ -210,8 +209,7 @@
         
         <!--ACTIVE VIEW BORDER-->
         <ContentControl Grid.Row="2"
-                        Grid.Column="3"
+                        Grid.Column="4"
                         Content="{Binding CurrentView}"/>
-        
     </Grid>
 </Window>
