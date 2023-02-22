@@ -24,7 +24,6 @@ namespace desktop_translator
     {
         public MainWindow()
         {
-            TranslateViewModel TranslateViewModel = new TranslateViewModel();
             InitializeComponent();
         }
 
@@ -32,6 +31,40 @@ namespace desktop_translator
         {
             this.DragMove();
         }
+
+        private void exit_bt_close(object sender, MouseButtonEventArgs e)
+        {
+            System.Environment.Exit(0);
+        }
+
+        private void min_bt_minimalize(object sender, MouseButtonEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void max_bt_maximalize(object sender, MouseButtonEventArgs e)
+        {
+            if(this.WindowState == WindowState.Normal)
+            {
+                this.WindowState = WindowState.Maximized;
+            }
+            else
+            {
+                this.WindowState = WindowState.Normal;
+            }
+        }
+        private void pin_bt_topmost(object sender, MouseButtonEventArgs e)
+        {
+            this.Topmost = !this.Topmost;
+
+            if (this.Topmost == true)
+            {
+                pin_dot.Style = (Style)FindResource("pin_bt_on_content");
+            }
+            else
+            {
+                pin_dot.Style = (Style)FindResource("pin_bt_off_content");
+            }
+        }
     }
 }
-

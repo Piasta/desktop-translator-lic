@@ -1,0 +1,190 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:desktop_translator.Theme">
+
+
+    <Style TargetType="{x:Type Rectangle}" 
+           x:Key="exit_bt_theme">
+
+        <Setter Property="Fill" Value="#FFFF4A42"/>
+        <Setter Property="Stroke" Value="#FF932C27"/>
+        <Setter Property="RadiusX" Value="10"/>
+        <Setter Property="RadiusY" Value="10"/>
+        <Setter Property="Width" Value="15"/>
+        <Setter Property="Height" Value="15"/>
+
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding IsMouseOver, ElementName=top_bar}" Value="False">
+                <DataTrigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetProperty="(Rectangle.Fill).(SolidColorBrush.Color)" To="#FFAEAEAE" Duration="0:0:0.1"/>
+                            <ColorAnimation Storyboard.TargetProperty="(Rectangle.Stroke).(SolidColorBrush.Color)" To="#FFAEAEAE" Duration="0:0:0.1"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </DataTrigger.EnterActions>
+                <DataTrigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetProperty="(Rectangle.Fill).(SolidColorBrush.Color)" To="#FFFF4A42" Duration="0:0:0.1"/>
+                            <ColorAnimation Storyboard.TargetProperty="(Rectangle.Stroke).(SolidColorBrush.Color)" To="#FF932C27" Duration="0:0:0.1"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </DataTrigger.ExitActions>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style TargetType="{x:Type Rectangle}"
+            x:Key="min_bt_theme">
+        
+        <Setter Property="Fill" Value="#FFFFBD2E"/>
+        <Setter Property="Stroke" Value="#FFB07F14"/>
+        <Setter Property="RadiusX" Value="10"/>
+        <Setter Property="RadiusY" Value="10"/>
+        <Setter Property="Width" Value="15"/>
+        <Setter Property="Height" Value="15"/>
+
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding IsMouseOver, ElementName=top_bar}" Value="False">
+                <DataTrigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetProperty="(Rectangle.Fill).(SolidColorBrush.Color)" To="#FFAEAEAE" Duration="0:0:0.1"/>
+                            <ColorAnimation Storyboard.TargetProperty="(Rectangle.Stroke).(SolidColorBrush.Color)" To="#FFAEAEAE" Duration="0:0:0.1"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </DataTrigger.EnterActions>
+                <DataTrigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetProperty="(Rectangle.Fill).(SolidColorBrush.Color)" To="#FFFFBD2E" Duration="0:0:0.1"/>
+                            <ColorAnimation Storyboard.TargetProperty="(Rectangle.Stroke).(SolidColorBrush.Color)" To="#FFB07F14" Duration="0:0:0.1"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </DataTrigger.ExitActions>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style TargetType="{x:Type Rectangle}"
+            x:Key="max_bt_theme" >
+        <Setter Property="Fill" Value="#FF28CA42"/>
+        <Setter Property="Stroke" Value="#FF117C06"/>
+        <Setter Property="RadiusX" Value="10"/>
+        <Setter Property="RadiusY" Value="10"/>
+        <Setter Property="Width" Value="15"/>
+        <Setter Property="Height" Value="15"/>
+
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding IsMouseOver, ElementName=top_bar}" Value="False">
+                <DataTrigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetProperty="(Rectangle.Fill).(SolidColorBrush.Color)" To="#FFAEAEAE" Duration="0:0:0.1"/>
+                            <ColorAnimation Storyboard.TargetProperty="(Rectangle.Stroke).(SolidColorBrush.Color)" To="#FFAEAEAE" Duration="0:0:0.1"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </DataTrigger.EnterActions>
+                <DataTrigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetProperty="(Rectangle.Fill).(SolidColorBrush.Color)" To="#FF28CA42" Duration="0:0:0.1"/>
+                            <ColorAnimation Storyboard.TargetProperty="(Rectangle.Stroke).(SolidColorBrush.Color)" To="#FF117C06" Duration="0:0:0.1"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </DataTrigger.ExitActions>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style TargetType="{x:Type Rectangle}"
+            x:Key="pin_bt_theme">
+        
+        <Setter Property="Fill" Value="#FF4095D6"/>
+        <Setter Property="Stroke" Value="#FF2571C1"/>
+        <Setter Property="RadiusX" Value="10"/>
+        <Setter Property="RadiusY" Value="10"/>
+        <Setter Property="Width" Value="15"/>
+        <Setter Property="Height" Value="15"/>
+
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding IsMouseOver, ElementName=top_bar}" Value="False">
+                <DataTrigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetProperty="(Rectangle.Fill).(SolidColorBrush.Color)" To="#FFAEAEAE" Duration="0:0:0.1"/>
+                            <ColorAnimation Storyboard.TargetProperty="(Rectangle.Stroke).(SolidColorBrush.Color)" To="#FFAEAEAE" Duration="0:0:0.1"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </DataTrigger.EnterActions>
+                <DataTrigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetProperty="(Rectangle.Fill).(SolidColorBrush.Color)" To="#FF4095D6" Duration="0:0:0.1"/>
+                            <ColorAnimation Storyboard.TargetProperty="(Rectangle.Stroke).(SolidColorBrush.Color)" To="#FF2571C1" Duration="0:0:0.1"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </DataTrigger.ExitActions>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--EXIT BUTTON CONTENT-->
+
+    <Style TargetType="{x:Type Path}"
+            x:Key="exit_bt_content">
+        <Setter Property="Stroke" Value="#FF8F1313"/>
+
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding IsMouseOver, ElementName=exit_bt}" Value="False">
+                <Setter Property="Stroke" Value="Transparent"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--MIN BUTTON CONTENT-->
+
+    <Style TargetType="{x:Type Path}"
+            x:Key="min_bt_content">
+        <Setter Property="Stroke" Value="#FFB07F14"/>
+
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding IsMouseOver, ElementName=min_bt}" Value="False">
+                <Setter Property="Stroke" Value="Transparent"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--MAX BUTTON CONTENT-->
+
+    <Style TargetType="{x:Type Path}"
+            x:Key="max_bt_content">
+        <Setter Property="Fill" Value="#FF117C06"/>
+
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding IsMouseOver, ElementName=max_bt}" Value="False">
+                <Setter Property="Fill" Value="Transparent"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--PIN BUTTON CONTENT-->
+
+    <Style TargetType="{x:Type Path}"
+            x:Key="pin_bt_off_content">
+        <Setter Property="Stroke" Value="#FF2571C1"/>
+
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding IsMouseOver, ElementName=pin_bt}" Value="False">
+                <Setter Property="Stroke" Value="Transparent"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style TargetType="{x:Type Path}"
+            x:Key="pin_bt_on_content">
+        <Setter Property="Stroke" Value="Gray"/>
+    </Style>
+
+</ResourceDictionary>

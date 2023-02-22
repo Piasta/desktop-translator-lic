@@ -4,36 +4,44 @@
     <Style BasedOn="{StaticResource {x:Type ToggleButton}}"
            TargetType="{x:Type RadioButton}"
            x:Key="MenuButtonTheme">
+        
         <Style.Setters>
             <Setter Property="Template">
+                
                 <Setter.Value>
                     <ControlTemplate TargetType="RadioButton">
+
                         <Border VerticalAlignment="Stretch"
-                            HorizontalAlignment="Stretch"
-                            CornerRadius="10"
-                            Margin="5,0,5,0"
-                            Background="{TemplateBinding Background}">
+                                HorizontalAlignment="Left"
+                                CornerRadius="10"
+                                Margin="5,0,5,0"
+                                Height="40"
+                                Background="{TemplateBinding Background}">
 
                             <TextBlock Text="{TemplateBinding Property=Content}"
                                        VerticalAlignment="Center"
-                                       FontSize="20"
+                                       FontSize="22"
                                        Margin="10,0,10,3"
                                        />
                         </Border>
-
+                        
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+            
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="BorderThickness" Value="1" />
             <Setter Property="Foreground" Value="#15A" />
+            
         </Style.Setters>
 
         <Style.Triggers>
+            
             <Trigger Property="IsChecked" Value="True">
-                <Setter Property="Background" Value="#13A" />
+                <Setter Property="Background" Value="#15A" />
                 <Setter Property="Foreground" Value="White" />
             </Trigger>
+            
         </Style.Triggers>
     </Style>
 

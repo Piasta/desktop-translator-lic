@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:desktop_translator"
         xmlns:viewModel="clr-namespace:desktop_translator.MVVM.ViewModel"
         mc:Ignorable="d" 
-        Height="340" Width="700"
+        Height="360" Width="700"
         Background="Transparent"
         WindowStyle="None"
         AllowsTransparency="True" 
@@ -16,119 +16,202 @@
         <viewModel:MainViewModel/>
     </Window.DataContext>
 
-    <!--DEFINICJA SIATKI-->
+    <!--GRID DEFINITION-->
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="20" />
-            <RowDefinition Height="10" />
-            <RowDefinition Height="10" />
-            <RowDefinition />
+            <RowDefinition Height="35"/>
             <RowDefinition Height="10"/>
+            <RowDefinition/>
             <RowDefinition Height="10"/>
+            <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="120" />
-            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition Width="10"/>
             <ColumnDefinition />
             <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
 
-        <!--RAMA TOP BAR-->
-        <Border Background="#D9FFFFFF"
-                Grid.RowSpan="2"
-                Grid.ColumnSpan="5"
-                CornerRadius="20,20,0,0"
-                MouseLeftButtonDown="Border_MouseLeftButtonDown"
-                Cursor="Hand">
-            <StackPanel >
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                </Grid>
-            </StackPanel>
-        </Border>
+        <!--MAIN BORDER-->
+        <Border Grid.RowSpan="5"
+                Grid.ColumnSpan="6"
+                Background="White"
+                Opacity="0.8"
+                CornerRadius="15, 15, 15, 15"/>
 
-        <!--RAMA PRZYCISKÓW MENU-->
-        <Border Background="#D9FFFFFF"
-                Grid.Row="2"
-                Grid.RowSpan="4"
-                Grid.ColumnSpan="5"
-                CornerRadius="0,0,20,20">
+        
+        <!--TOP BAR BORDER-->
+        <Border Background="Transparent"
+                Grid.ColumnSpan="6"
+                MouseLeftButtonDown="Border_MouseLeftButtonDown"/>
 
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="100"/>
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="120"/>
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
 
-                <Border>
+        <!--TOP BAR BUTTONS GRID-->
+        <Grid Background="Transparent"
+              Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="15"/>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition Width="10"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid x:Name="exit_bt"
+                  Grid.Row="1"
+                  Grid.Column="1"
+                  MouseLeftButtonDown="exit_bt_close"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Center">
+
+                <Rectangle Style="{StaticResource exit_bt_theme}"/>
+
+                <Path StrokeThickness="2"
+                          Width="15"
+                          Height="15"
+                          Style="{StaticResource exit_bt_content}">
+                    <Path.Data>
+                        <GeometryGroup>
+                            <LineGeometry StartPoint="4.5,4.5" EndPoint="10.5,10.5"/>
+                            <LineGeometry StartPoint="4.5,10.5" EndPoint="10.5,4.5"/>
+                        </GeometryGroup>
+                    </Path.Data>
+
+                </Path>
+            </Grid>
+
+            <Grid x:Name="min_bt"
+                  Grid.Row="1"
+                  Grid.Column="2"
+                  MouseLeftButtonDown="min_bt_minimalize">
+                
+                <Rectangle Style="{StaticResource min_bt_theme}"/>
+
+                <Path StrokeThickness="2" Width="15" Height="15" Style="{StaticResource min_bt_content}">
+                    <Path.Data>
+                        <GeometryGroup>
+                            <LineGeometry StartPoint="11,7.5" EndPoint="4,7.5"/>
+                        </GeometryGroup>
+                    </Path.Data>
+                </Path>
+            </Grid>
+
+
+            <Grid x:Name="max_bt" 
+                    Grid.Row="1"
+                    Grid.Column="3"
+                    MouseLeftButtonDown="max_bt_maximalize">
+
+
+
+                <Rectangle Style="{StaticResource max_bt_theme}"/>
+
+                <Path Width="15" 
+                      Height="15" 
+                      Style="{StaticResource max_bt_content}">
+                    
+                    <Path.Data>
+                        <GeometryGroup>
+                            <RectangleGeometry Rect="4.5,4.5,6,6"/>
+                        </GeometryGroup>
+                    </Path.Data>
+                </Path>
+            </Grid>
+
+            <Grid x:Name="pin_bt"
+                  Grid.Row="1"
+                  Grid.Column="4"
+                  MouseLeftButtonDown="pin_bt_topmost">
+
+                <Rectangle Style="{StaticResource pin_bt_theme}"/>
+
+                <Path x:Name="pin_dot" 
+                    StrokeThickness="6" 
+                      Width="15" 
+                      Height="15" 
+                      Style="{StaticResource pin_bt_off_content}">
+                    <Path.Data>
+                        <GeometryGroup>
+                            <EllipseGeometry Center="7.5,7.5"/>
+                        </GeometryGroup>
+                    </Path.Data>
+                </Path>
+            </Grid>
+        </Grid>
+
+        <!--MENU BUTTONS BORDER-->
+
+        <Grid Grid.Row="2"
+              Grid.RowSpan="2"
+              Grid.Column="1">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Border>
                 <Image x:Name="logo"
-                       Source="Images/google_translate_icon.png" 
+                       Source="Images/google_translate_icon.png"
                        Width="90"
-                       Height="90" 
-                       Margin="10,10,20,0"
-                       />
-                    <Border.Effect>
-                        <DropShadowEffect BlurRadius="30"
-                                          Opacity="0.8"
-                                          Color="Black"/>
-                    </Border.Effect>
-                </Border>
-                
-                
-                
-                <StackPanel Grid.Row="1"
-                            Margin="0,10,0,0">
-                    <RadioButton Content="Translate"
-                             Height="40"
-                             FontSize="20"
+                       HorizontalAlignment="Center"/>
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="44"
+                                      Opacity="0.65"
+                                      ShadowDepth="0"/>
+                </Border.Effect>
+            </Border>
+
+            <StackPanel Grid.Row="1">
+                <RadioButton Content="Translate"
                              Style="{StaticResource MenuButtonTheme}"
                              IsChecked="True"
                              Command="{Binding TranslateViewCommand}"/>
-                    <RadioButton Content="History"
-                             Height="40"
+
+                <RadioButton Content="History"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding HistoryCommandGroup}"/>
 
-                    <RadioButton Content="Options"
-                             Height="40"
+                <RadioButton Content="Options"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding OptionsViewCommand}"/>
 
-                    <RadioButton Content="Info"
-                             Height="40"
+                <RadioButton Content="Info"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding InfoViewCommand}"/>
-                </StackPanel>
-            </Grid>
-        </Border>
 
-        <!--RAMA AKTYWNEGO WIDOKU-->
-        <Border Background="#15A"
-                Grid.Row="1"
-                Grid.RowSpan="4"
-                Grid.Column="1"
+            </StackPanel>
+        </Grid>
+        
+        
+        <!--ACTIVE VIEW AROUND BORDER-->
+        <Border Grid.Row="1"
+                Grid.RowSpan="3"
+                Grid.Column="2"
                 Grid.ColumnSpan="3"
-                CornerRadius="20,20,20,20">
-            <Border.Effect>
-                <DropShadowEffect BlurRadius="40"
-                                  Color="Black"/>
-            </Border.Effect>
+                Background="#15A"
+                CornerRadius="10">
 
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="30"
+                                  ShadowDepth="1"/>
+            </Border.Effect>
         </Border>
 
-        <ContentControl Content="{Binding CurrentView}"
-                        Grid.Row="2"
-                        Grid.RowSpan="2"
-                        Grid.Column="2"/>
+        
+        <!--ACTIVE VIEW BORDER-->
+        <ContentControl Grid.Row="2"
+                        Grid.Column="3"
+                        Content="{Binding CurrentView}"/>
+        
     </Grid>
 </Window>
