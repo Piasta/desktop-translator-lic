@@ -10,7 +10,6 @@ namespace desktop_translator.MVVM.Model
     class TranslateModel : ObservableObject
     {
         private string _rawText;
-
         public string RawText
         {
             get { return _rawText; }
@@ -18,11 +17,14 @@ namespace desktop_translator.MVVM.Model
             {
                 _rawText = value;
                 OnPropertyChanged("RawText");
+                if (string.IsNullOrEmpty(_rawText))
+                {
+                    TranslatedText = null;
+                }
             }
         }
 
         private string _translatedText;
-
         public string TranslatedText
         {
             get { return _translatedText; }
@@ -35,32 +37,28 @@ namespace desktop_translator.MVVM.Model
 
         public void Translate()
         {
-            var toLanguage = "en";
-            var fromLanguage = "pl";
-
-
-            Console.WriteLine("raw " + RawText);
-            Console.WriteLine("translated " + TranslatedText);
-
-            var url = $"https://translate.googleapis.com/translate_a/single?client=gtx&sl={fromLanguage}&tl={toLanguage}&dt=t&q={WebUtility.UrlEncode(RawText)}";
-            var webClient = new WebClient
+            if (!string.IsNullOrEmpty(RawText))
             {
-                Encoding = System.Text.Encoding.UTF8
-            };
-            
-            try
-            {
-                var result = webClient.DownloadString(url);
-                result = result.Substring(4, result.IndexOf("\"", 4, StringComparison.Ordinal) - 4);
-                TranslatedText = result;
+                var toLanguage = "en";
+                var fromLanguage = "pl";
+                
+                try
+                {
+                    var url = $"https://translate.googleapis.com/translate_a/single?client=gtx&sl={fromLanguage}&tl={toLanguage}&dt=t&q={WebUtility.UrlEncode(RawText)}";
+                    var webClient = new WebClient
+                    {
+                        Encoding = System.Text.Encoding.UTF8
+                    };
 
-                Console.WriteLine("raw2" + RawText);
-                Console.WriteLine("translated2" + TranslatedText);
+                    var result = webClient.DownloadString(url);
+                    result = result.Substring(4, result.IndexOf("\"", 4, StringComparison.Ordinal) - 4);
+                    TranslatedText = result;
+                }
+                catch
+                {
+                    MessageBox.Show("NoNetwork");
+                }
             }
-            catch
-            {
-                MessageBox.Show("Error");
-            }            
         }
     }
 }

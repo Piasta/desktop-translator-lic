@@ -15,9 +15,9 @@
                   IsReadOnly="True">
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header="No." 
-                                    Binding="{Binding Id}"
-                                    Width="40" >
+                <DataGridTextColumn Header="Date/Time" 
+                                    Binding="{Binding UPDDTTM}"
+                                    Width="200" >
                 </DataGridTextColumn>
 
                 <DataGridTextColumn Header="Typed text" 
