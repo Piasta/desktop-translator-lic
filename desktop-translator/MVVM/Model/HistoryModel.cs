@@ -3,8 +3,6 @@ using System;
 using System.Data;
 using System.Data.SQLite;
 using System.Windows;
-using System.Windows.Media;
-using desktop_translator.MVVM.Model;
 
 namespace desktop_translator.MVVM.Model
 {
@@ -24,7 +22,11 @@ namespace desktop_translator.MVVM.Model
                     SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
                     command.Parameters.AddWithValue("@TypedText", TypedText);
                     command.Parameters.AddWithValue("@TranslatedText", TranslatedText);
-                    command.Parameters.AddWithValue("@Now", DateTime.UtcNow);
+
+                    DateTime now = DateTime.Now;
+                    string formattedData = now.ToString("MM/dd/yy hh:mm");
+
+                    command.Parameters.AddWithValue("@Now", formattedData);
                     command.ExecuteNonQuery();
                 }
                 else

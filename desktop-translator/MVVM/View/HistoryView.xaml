@@ -17,7 +17,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Date/Time" 
                                     Binding="{Binding UPDDTTM}"
-                                    Width="200" >
+                                    Width="106" >
                 </DataGridTextColumn>
 
                 <DataGridTextColumn Header="Typed text" 
