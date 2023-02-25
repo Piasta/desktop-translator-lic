@@ -2,56 +2,85 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:desktop_translator.MVVM.View"
-             xmlns:viewModel="clr-namespace:desktop_translator.MVVM.ViewModel"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d" 
              d:DesignHeight="285" d:DesignWidth="570"
-             Background="Transparent"
-             >
-
-    <UserControl.InputBindings>
-        <KeyBinding Modifiers="Alt"
-                    Key="U"
-                    Command="{Binding TranslateCommandGroup}"/>
-    </UserControl.InputBindings>
-    
-    
-    <Border>
-        <Grid Cursor="">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="30"/>
-                <RowDefinition />
-                <RowDefinition Height="80"/>
-            </Grid.RowDefinitions>
-
-            <TextBox x:Name="RawTextBox" Grid.Row="1"
-                 VerticalAlignment="Center"
-                 HorizontalAlignment="Center"
-                 Margin="0,-90,0,0"
-                 Style="{StaticResource ModernTypeTextBox}"
-                 Text="{Binding RawText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                 DataContext="{Binding TranslateModel}"
-                 />
+             Background="Transparent">
 
 
-            <TextBox x:Name="translatedTextBox" Grid.Row="1"
-                 VerticalAlignment="Center"
-                 HorizontalAlignment="Center"
-                 Margin="0,90,0,0"
-                 Style="{StaticResource ModernTranslateTextBox}"
-                 Text="{Binding TranslatedText, Mode=TwoWay}"
-                 DataContext="{Binding TranslateModel}"/>
 
-            <Button x:Name="translateButton" Grid.Row="2"
+    <Grid Cursor="">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition />
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"/>
+            <ColumnDefinition />
+            <ColumnDefinition Width="60"/>
+        </Grid.ColumnDefinitions>
+
+
+        <Border Grid.Column="1"
+                CornerRadius="10"
+                HorizontalAlignment="Left"
+                Padding="0,0,10,0"
+                Height="26"
+                Margin="0,2,0,2">
+            <Border.Background>
+                <SolidColorBrush Color="#0C1821" Opacity="0.4"/>
+            </Border.Background>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <ToggleButton Style="{StaticResource ToggleButtonStyle}"
+                              IsChecked="{Binding IsChecked}"
+                              DataContext="{Binding TranslateModel}"/>
+
+                <Label Grid.Column="1" 
+                       Content="Automatic language detection"
+                       Foreground="#797979"
+                       Margin="-2,0,-5,0"/>
+            </Grid>
+        </Border>
+        
+
+        <TextBox x:Name="RawTextBox" 
+                         Grid.Column="1"
+                         Grid.Row="1"
+                         VerticalAlignment="Center"
+                         Margin="0,-90,0,0"
+                         Style="{StaticResource ModernTypeTextBox}"
+                         Text="{Binding RawText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         DataContext="{Binding TranslateModel}"/>
+
+
+        <TextBox x:Name="translatedTextBox" 
+                         Grid.Column="1"
+                         Grid.Row="1"
+                         VerticalAlignment="Center"           
+                         Margin="0,90,0,0"                 
+                         Style="{StaticResource ModernTranslateTextBox}"
+                         Text="{Binding TranslatedText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"                 
+                         DataContext="{Binding TranslateModel}"/>
+
+
+        <Button x:Name="translateButton" 
+                    Grid.Row="2"
+                    Grid.Column="1"
                     Content="Translate"
                     Height="40"
                     Width="150"
-                    Margin="0,15,0,0"
+                    Margin="0,10"
                     VerticalAlignment="Top"
                     Style="{StaticResource ViewsButtonTheme}"
-                    Command="{Binding TranslateCommandGroup}">
-            </Button>
-        </Grid>
-    </Border>
+                    Command="{Binding TranslateCommandGroup}"/>
+    </Grid>
+
+
 </UserControl>

@@ -31,15 +31,15 @@
 
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="BorderThickness" Value="1" />
-            <Setter Property="Foreground" Value="#15A" />
+            <Setter Property="Foreground" Value="#797979" />
 
         </Style.Setters>
 
         <Style.Triggers>
 
             <Trigger Property="IsChecked" Value="True">
-                <Setter Property="Background" Value="#15A" />
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Background" Value="#0C1821" />
+                <Setter Property="Foreground" Value="#CCC9DC" />
                 <Setter Property="Effect">
                     <Setter.Value>
                         <DropShadowEffect ShadowDepth="0"

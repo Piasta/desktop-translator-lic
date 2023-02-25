@@ -6,8 +6,8 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TextBox}">
                     <Border CornerRadius="10"
-                            Background="#353340"
-                            Width="400" Height="55">
+                            Background="#0C1821"
+                            Height="55">
 
                         <Grid>
                             <Rectangle StrokeThickness="1"/>
@@ -16,17 +16,18 @@
                                      Background="Transparent"
                                      VerticalContentAlignment="Center"
                                      Padding="5"
-                                     Foreground="#CFCFCF"
+                                     Foreground="#B6B6B6"
                                      FontSize="16"
                                      Text="{Binding Text, RelativeSource={RelativeSource TemplatedParent}, UpdateSourceTrigger=PropertyChanged}"
                                      x:Name="TextBox"/>
+                            
                             <TextBlock IsHitTestVisible="False"
-                                       Text="Type what do want to translate"
+                                       Text="Type what do you want to translate"
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Left"
                                        Margin="10,0,0,0"
                                        FontSize="16"
-                                       Foreground="DarkGray">
+                                       Foreground="#797979">
 
                                 <TextBlock.Style>
                                     <Style TargetType="{x:Type TextBlock}">
@@ -54,8 +55,8 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TextBox}">
                     <Border CornerRadius="10"
-                            Background="#353340"
-                            Width="400" Height="55">
+                            Background="#0C1821"
+                            Height="55">
 
                         <Grid>
                             <Rectangle StrokeThickness="1"/>
@@ -64,7 +65,7 @@
                                      Background="Transparent"
                                      VerticalContentAlignment="Center"
                                      Padding="5"
-                                     Foreground="#CFCFCF"
+                                     Foreground="#B6B6B6"
                                      FontSize="16"
                                      Text="{Binding Text, RelativeSource={RelativeSource TemplatedParent}, UpdateSourceTrigger=PropertyChanged}"
                                      x:Name="TextBox"/>
@@ -75,7 +76,7 @@
                                        HorizontalAlignment="Left"
                                        Margin="10,0,0,0"
                                        FontSize="16"
-                                       Foreground="DarkGray">
+                                       Foreground="#797979">
 
                                 <TextBlock.Style>
                                     <Style TargetType="{x:Type TextBlock}">
