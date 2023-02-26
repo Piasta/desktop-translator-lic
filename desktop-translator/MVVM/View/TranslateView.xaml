@@ -70,8 +70,17 @@
                          DataContext="{Binding TranslateModel}"/>
 
 
-        <Button x:Name="translateButton" 
-                    Grid.Row="2"
+
+
+        <Grid Grid.Row="2"
+              Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="translateButton" 
                     Grid.Column="1"
                     Content="Translate"
                     Height="40"
@@ -80,6 +89,14 @@
                     VerticalAlignment="Top"
                     Style="{StaticResource ViewsButtonTheme}"
                     Command="{Binding TranslateCommandGroup}"/>
+
+            <ComboBox ItemsSource="{Binding Languages}"
+                      SelectedValue="{Binding FromLanguage}"
+                      DisplayMemberPath="Key"
+                      SelectedValuePath="Value"
+                      DataContext="{Binding TranslateModel}">
+            </ComboBox>
+        </Grid>
     </Grid>
 
 

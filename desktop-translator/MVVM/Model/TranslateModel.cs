@@ -1,11 +1,9 @@
 ﻿using desktop_translator.Core;
-using desktop_translator.MVVM.ViewModel;
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Net;
-using System.Security.Policy;
-using System.Text;
 using System.Windows;
-using System.Windows.Input;
 
 namespace desktop_translator.MVVM.Model
 {
@@ -48,20 +46,30 @@ namespace desktop_translator.MVVM.Model
             }
         }
 
+        private string _fromLanguage;
+        public string FromLanguage
+        {
+            get { return _fromLanguage; }
+            set
+            {
+                _fromLanguage = value;
+                OnPropertyChanged("FromLanguage");
+            }
+        }
+
         public void Translate()
         {
             if (!string.IsNullOrEmpty(RawText))
             {
                 var toLanguage = "en";
-                var fromLanguage = "pl";
 
                 if (IsChecked == true)
                 {
-                    fromLanguage = "auto";
+                    FromLanguage = "auto";
                 }
                 try
                 {
-                    var url = $"https://translate.googleapis.com/translate_a/single?client=gtx&sl={fromLanguage}&tl={toLanguage}&dt=t&q={WebUtility.UrlEncode(RawText)}";
+                    var url = $"https://translate.googleapis.com/translate_a/single?client=gtx&sl={FromLanguage}&tl={toLanguage}&dt=t&q={WebUtility.UrlEncode(RawText)}";
                     var webClient = new WebClient
                     {
                         Encoding = System.Text.Encoding.UTF8
@@ -70,12 +78,33 @@ namespace desktop_translator.MVVM.Model
                     result = result.Substring(4, result.IndexOf("\"", 4, StringComparison.Ordinal) - 4);
 
                     TranslatedText = result;
-                    }
+                }
                 catch
                 {
                     MessageBox.Show("NoNetwork");
                 }
             }
+        }
+
+        private List<object> _languages;
+
+        public List<object> Languages
+        {
+            get { return _languages; }
+            set
+            {
+                _languages = value;
+                OnPropertyChanged("Languages");
+            }
+        }
+
+        public TranslateModel()
+        {
+            Languages = new List<object>
+            {
+                new {Key = "English", Value = "en" },
+                new {Key = "Polish", Value = "pl" }
+            };
         }
     }
 }
