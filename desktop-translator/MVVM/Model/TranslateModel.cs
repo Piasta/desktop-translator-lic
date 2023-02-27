@@ -61,27 +61,35 @@ namespace desktop_translator.MVVM.Model
         {
             if (!string.IsNullOrEmpty(RawText))
             {
-                var toLanguage = "en";
+                var toLanguage = "pl";
 
                 if (IsChecked == true)
                 {
                     FromLanguage = "auto";
                 }
-                try
-                {
-                    var url = $"https://translate.googleapis.com/translate_a/single?client=gtx&sl={FromLanguage}&tl={toLanguage}&dt=t&q={WebUtility.UrlEncode(RawText)}";
-                    var webClient = new WebClient
-                    {
-                        Encoding = System.Text.Encoding.UTF8
-                    };
-                    var result = webClient.DownloadString(url);
-                    result = result.Substring(4, result.IndexOf("\"", 4, StringComparison.Ordinal) - 4);
 
-                    TranslatedText = result;
-                }
-                catch
+                if (!string.IsNullOrEmpty(FromLanguage))
                 {
-                    MessageBox.Show("NoNetwork");
+                    try
+                    {
+                        var url = $"https://translate.googleapis.com/translate_a/single?client=gtx&sl={FromLanguage}&tl={toLanguage}&dt=t&q={WebUtility.UrlEncode(RawText)}";
+                        var webClient = new WebClient
+                        {
+                            Encoding = System.Text.Encoding.UTF8
+                        };
+                        var result = webClient.DownloadString(url);
+                        result = result.Substring(4, result.IndexOf("\"", 4, StringComparison.Ordinal) - 4);
+
+                        TranslatedText = result;
+                    }
+                    catch
+                    {
+                        MessageBox.Show("NoNetwork");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("ChooseLanguage");
                 }
             }
         }

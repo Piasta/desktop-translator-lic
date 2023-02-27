@@ -10,32 +10,33 @@ namespace desktop_translator.MVVM.Model
     {
         public void DbInsert(string TypedText, string TranslatedText)
         {
-            if (!string.IsNullOrEmpty(TypedText))
+            if (!string.IsNullOrEmpty(TypedText) && !string.IsNullOrEmpty(TranslatedText))
             {
-                string dbPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "HistoryDB.db");
-                SQLiteConnection m_dbConnection = new SQLiteConnection("Data Source=" + dbPath + ";Version=3;");
-                m_dbConnection.Open();
+                
+                    string dbPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "HistoryDB.db");
+                    SQLiteConnection m_dbConnection = new SQLiteConnection("Data Source=" + dbPath + ";Version=3;");
+                    m_dbConnection.Open();
 
-                if (m_dbConnection.State == ConnectionState.Open)
-                {
-                    string sql = "insert into Phrases (TypedText, TranslatedText, UPDDTTM) values (@TypedText, @TranslatedText, @Now)";
-                    SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
-                    command.Parameters.AddWithValue("@TypedText", TypedText);
-                    command.Parameters.AddWithValue("@TranslatedText", TranslatedText);
+                    if (m_dbConnection.State == ConnectionState.Open)
+                    {
+                        string sql = "insert into Phrases (TypedText, TranslatedText, UPDDTTM) values (@TypedText, @TranslatedText, @Now)";
+                        SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
+                        command.Parameters.AddWithValue("@TypedText", TypedText);
+                        command.Parameters.AddWithValue("@TranslatedText", TranslatedText);
 
-                    DateTime now = DateTime.Now;
-                    string formattedData = now.ToString("MM/dd/yy hh:mm");
+                        DateTime now = DateTime.Now;
+                        string formattedData = now.ToString("MM/dd/yy hh:mm");
 
-                    command.Parameters.AddWithValue("@Now", formattedData);
-                    command.ExecuteNonQuery();
+                        command.Parameters.AddWithValue("@Now", formattedData);
+                        command.ExecuteNonQuery();
+                    }
+                    else
+                    {
+                        MessageBox.Show("DbInsertBREAK");
+                    }
+                    m_dbConnection.Close();
                 }
-                else
-                {
-                    MessageBox.Show("DbInsertBREAK");
-                }
-                m_dbConnection.Close();
             }
-        }
 
         public DataTable table;
         public void DbView()
