@@ -84,7 +84,7 @@
                     Grid.Column="1"
                     Content="Translate"
                     Height="40"
-                    Width="150"
+                    HorizontalAlignment="Stretch"
                     Margin="0,10"
                     VerticalAlignment="Top"
                     Style="{StaticResource ViewsButtonTheme}"
@@ -92,9 +92,11 @@
 
             <ComboBox ItemsSource="{Binding Languages}"
                       SelectedValue="{Binding FromLanguage}"
-                      DisplayMemberPath="Key"
-                      SelectedValuePath="Value"
-                      DataContext="{Binding TranslateModel}">
+                      DataContext="{Binding TranslateModel}"
+                      Style="{StaticResource ComboBoxTheme}"
+                      VerticalAlignment="Top"
+                      Margin="0, 10"
+                      OverridesDefaultStyle="True">
             </ComboBox>
         </Grid>
     </Grid>

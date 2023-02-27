@@ -144,7 +144,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MVVM\Model\Class1.cs" />
     <Compile Include="MVVM\Model\HistoryModel.cs" />
     <Compile Include="MVVM\Model\TranslateModel.cs" />
     <Compile Include="MVVM\ViewModel\HistoryViewModel.cs" />
