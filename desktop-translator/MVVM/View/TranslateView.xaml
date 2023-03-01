@@ -88,15 +88,7 @@
                     Margin="0,10"
                     VerticalAlignment="Top"
                     Style="{StaticResource ViewsButtonTheme}"
-                    Command="{Binding TranslateCommandGroup}"/>
-
-            <ComboBox ItemsSource="{Binding Languages}"
-                      SelectedValue="{Binding FromLanguage}"
-                      DataContext="{Binding TranslateModel}"
-                      Style="{StaticResource ComboBoxTheme}"
-                      VerticalAlignment="Top"
-                      Margin="0, 10">
-            </ComboBox>
+                    Command="{Binding TranslateCommandGroup}"
         </Grid>
     </Grid>
 
