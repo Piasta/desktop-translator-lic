@@ -9,6 +9,12 @@
              Background="Transparent">
 
     <Border Background="#95A">
-
+        <ListBox ItemsSource="{Binding Languages}"
+                 DataContext="{Binding OptionsModel}"
+                 SelectedValue="{Binding FromLanguage}"
+                 DisplayMemberPath="Key"
+                 SelectedValuePath="Value">
+            
+        </ListBox>
     </Border>
 </UserControl>

@@ -14,7 +14,6 @@
                 <ResourceDictionary Source="Theme/TopBarButtonTheme.xaml"/>
                 <ResourceDictionary Source="Theme/DataGridTheme.xaml"/>
                 <ResourceDictionary Source="Theme/ToggleButtonTheme.xaml"/>
-                <ResourceDictionary Source="Theme/ComboBoxTheme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <DataTemplate DataType="{x:Type viewModel:TranslateViewModel}">
