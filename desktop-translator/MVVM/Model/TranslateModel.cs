@@ -111,7 +111,8 @@ namespace desktop_translator.MVVM.Model
             Languages = new List<object>
             {
                 new {Key = "English", Value = "en" },
-                new {Key = "Polish", Value = "pl" }
+                new {Key = "Polish", Value = "pl" },
+                new {Key = "Korean", Value = "ko" }
             };
         }
     }
