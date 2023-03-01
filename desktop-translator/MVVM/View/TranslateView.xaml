@@ -89,6 +89,7 @@
                     VerticalAlignment="Top"
                     Style="{StaticResource ViewsButtonTheme}"
                     Command="{Binding TranslateCommandGroup}"/>
+            
         </Grid>
     </Grid>
 
