@@ -1,8 +1,8 @@
 ﻿using desktop_translator.Core;
 using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Net;
+using System.Web;
+using System.Web.Caching;
 using System.Windows;
 
 namespace desktop_translator.MVVM.Model
@@ -35,8 +35,8 @@ namespace desktop_translator.MVVM.Model
             }
         }
 
-        private Boolean _isChecked = true;
-        public Boolean IsChecked
+        private bool _isChecked = true;
+        public bool IsChecked
         {
             get { return _isChecked; }
             set
@@ -46,74 +46,79 @@ namespace desktop_translator.MVVM.Model
             }
         }
 
-        private string _fromLanguage;
-        public string FromLanguage
+        private string _cacheToLanguage;
+        public string CacheToLanguage
         {
-            get { return _fromLanguage; }
+            get { return _cacheToLanguage; }
             set
             {
-                _fromLanguage = value;
-                OnPropertyChanged("FromLanguage");
+                _cacheToLanguage = value;
+                OnPropertyChanged(nameof(CacheToLanguage));
+                Console.WriteLine("Translate model TO Cache " + CacheToLanguage);
+
             }
+        }
+
+        private string _cacheFromLanguage;
+        public string CacheFromLanguage
+        {
+            get { return _cacheFromLanguage; }
+            set
+            {
+                _cacheFromLanguage = value;
+                OnPropertyChanged(nameof(CacheFromLanguage));
+                Console.WriteLine("Translate model FROM Cache " + CacheFromLanguage);
+
+            }
+        }
+
+        Cache cache = HttpRuntime.Cache;
+        public void test()
+        {
+            CacheFromLanguage = (string)cache.Get("fromLanguage");
+            CacheToLanguage = (string)cache.Get("toLanguage");
         }
 
         public void Translate()
         {
             if (!string.IsNullOrEmpty(RawText))
             {
-                var toLanguage = "pl";
-
-                if (IsChecked == true)
+                if (!string.IsNullOrEmpty(CacheToLanguage))
                 {
-                    FromLanguage = "auto";
-                }
-
-                if (!string.IsNullOrEmpty(FromLanguage))
-                {
-                    try
+                    if (IsChecked == true)
                     {
-                        var url = $"https://translate.googleapis.com/translate_a/single?client=gtx&sl={FromLanguage}&tl={toLanguage}&dt=t&q={WebUtility.UrlEncode(RawText)}";
-                        var webClient = new WebClient
-                        {
-                            Encoding = System.Text.Encoding.UTF8
-                        };
-                        var result = webClient.DownloadString(url);
-                        result = result.Substring(4, result.IndexOf("\"", 4, StringComparison.Ordinal) - 4);
-
-                        TranslatedText = result;
+                        CacheFromLanguage = "auto";
                     }
-                    catch
+
+                    if (!string.IsNullOrEmpty(CacheFromLanguage))
                     {
-                        MessageBox.Show("NoNetwork");
+                        try
+                        {
+                            var url = $"https://translate.googleapis.com/translate_a/single?client=gtx&sl={CacheFromLanguage}&tl={CacheToLanguage}&dt=t&q={WebUtility.UrlEncode(RawText)}";
+                            var webClient = new WebClient
+                            {
+                                Encoding = System.Text.Encoding.UTF8
+                            };
+                            var result = webClient.DownloadString(url);
+                            result = result.Substring(4, result.IndexOf("\"", 4, StringComparison.Ordinal) - 4);
+
+                            TranslatedText = result;
+                        }
+                        catch
+                        {
+                            MessageBox.Show("No internet connection.");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("From language has been not selected.");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("ChooseLanguage");
+                    MessageBox.Show("To language has been not selected.");
                 }
             }
-        }
-
-        private List<object> _languages;
-
-        public List<object> Languages
-        {
-            get { return _languages; }
-            set
-            {
-                _languages = value;
-                OnPropertyChanged("Languages");
-            }
-        }
-
-        public TranslateModel()
-        {
-            Languages = new List<object>
-            {
-                new {Key = "English", Value = "en" },
-                new {Key = "Polish", Value = "pl" },
-                new {Key = "Korean", Value = "ko" }
-            };
         }
     }
 }

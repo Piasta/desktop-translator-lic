@@ -33,10 +33,24 @@ namespace desktop_translator.MVVM.ViewModel
             }
         }
 
+        private OptionsModel _optionsModel;
+
+        public OptionsModel OptionsModel
+        {
+            get { return _optionsModel; }
+            set
+            {
+                _optionsModel = value;
+                OnPropertyChanged("OptionsModel");
+            }
+        }
+
+
         public TranslateViewModel()
         {
             TranslateModel = new TranslateModel();
             HistoryModel = new HistoryModel();
+            OptionsModel = new OptionsModel();
         }
 
 

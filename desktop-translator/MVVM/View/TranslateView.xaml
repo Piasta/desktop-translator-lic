@@ -89,9 +89,22 @@
                     VerticalAlignment="Top"
                     Style="{StaticResource ViewsButtonTheme}"
                     Command="{Binding TranslateCommandGroup}"/>
-            
-        </Grid>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="From language:" Foreground="White"/>
+                <TextBlock Grid.Row="1" 
+                           Text="{Binding CacheFromLanguage, Mode=OneWay}"
+                           DataContext="{Binding TranslateModel}"
+                           Foreground="White"
+                           />
+            </Grid>
     </Grid>
+</Grid>
 
 
 </UserControl>

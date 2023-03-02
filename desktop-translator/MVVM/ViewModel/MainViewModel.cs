@@ -42,6 +42,7 @@ namespace desktop_translator.MVVM.ViewModel
 
             TranslateViewCommand = new RelayCommand(o => {
                 CurrentView = TranslateVM;
+                TranslateVM.TranslateModel.test();
             });
 
             HistoryViewCommand = new RelayCommand(o => {
