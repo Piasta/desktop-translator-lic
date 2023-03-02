@@ -98,7 +98,7 @@
 
                 <TextBlock Text="From language:" Foreground="White"/>
                 <TextBlock Grid.Row="1" 
-                           Text="{Binding CacheFromLanguage, Mode=OneWay}"
+                           Text="{Binding CacheFromLanguage, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
                            DataContext="{Binding TranslateModel}"
                            Foreground="White"
                            />

@@ -75,7 +75,8 @@ namespace desktop_translator.MVVM.Model
         Cache cache = HttpRuntime.Cache;
         public void test()
         {
-            CacheFromLanguage = (string)cache.Get("fromLanguage");
+            CacheFromLanguage = (string)cache.Get("fromLanguage")?.GetType().GetProperty("Value").GetValue(cache.Get("fromLanguage"), null);
+            //CacheFromLanguage = (string)cache.Get("fromLanguage");
             CacheToLanguage = (string)cache.Get("toLanguage");
         }
 

@@ -75,22 +75,5 @@ namespace desktop_translator.MVVM.ViewModel
                 return _historyCommandGroup;
             }
         }
-        //private CommandGroup _translateCommandGroup;
-
-        //public CommandGroup TranslateCommandGroup
-        //{
-        //    get
-        //    {
-        //        if (_translateCommandGroup == null)
-        //        {
-        //            _translateCommandGroup = new CommandGroup(new List<ICommand>
-        //        {
-        //            TranslateVM.TranslateCommand,
-        //            TranslateVM.DbInsertCommand
-        //            });
-        //        }
-        //        return _translateCommandGroup;
-        //    }
-        //}
     }
 }
