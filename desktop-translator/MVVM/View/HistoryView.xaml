@@ -12,7 +12,8 @@
     <Grid>
         <DataGrid ItemsSource="{Binding Path=Phrases}"
                   AutoGenerateColumns="False" 
-                  IsReadOnly="True">
+                  IsReadOnly="True"
+                  IsHitTestVisible="False">
 
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Date/Time" 

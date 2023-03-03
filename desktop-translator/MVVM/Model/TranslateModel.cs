@@ -46,7 +46,7 @@ namespace desktop_translator.MVVM.Model
             }
         }
 
-        private string _cacheToLanguage;
+        private string _cacheToLanguage = "Not selected";
         public string CacheToLanguage
         {
             get { return _cacheToLanguage; }
@@ -75,8 +75,8 @@ namespace desktop_translator.MVVM.Model
         Cache cache = HttpRuntime.Cache;
         public void test()
         {
-            CacheFromLanguage = (string)cache.Get("fromLanguage")?.GetType().GetProperty("Value").GetValue(cache.Get("fromLanguage"), null);
-            //CacheFromLanguage = (string)cache.Get("fromLanguage");
+            //CacheFromLanguage = (string)cache.Get("fromLanguage").GetType().GetProperty("Value").GetValue(cache.Get("fromLanguage"), null);
+            CacheFromLanguage = (string)cache.Get("fromLanguage");
             CacheToLanguage = (string)cache.Get("toLanguage");
         }
 
@@ -84,7 +84,7 @@ namespace desktop_translator.MVVM.Model
         {
             if (!string.IsNullOrEmpty(RawText))
             {
-                if (!string.IsNullOrEmpty(CacheToLanguage))
+                if (!string.IsNullOrEmpty(CacheToLanguage) && CacheToLanguage != "Not selected")
                 {
                     if (IsChecked == true)
                     {

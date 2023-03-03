@@ -48,7 +48,7 @@
                        Margin="-2,0,-5,0"/>
             </Grid>
         </Border>
-        
+
 
         <TextBox x:Name="RawTextBox" 
                          Grid.Column="1"
@@ -79,32 +79,74 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
 
             <Button x:Name="translateButton" 
                     Grid.Column="1"
+                    Grid.Row="1"
                     Content="Translate"
                     Height="40"
                     HorizontalAlignment="Stretch"
-                    Margin="0,10"
                     VerticalAlignment="Top"
                     Style="{StaticResource ViewsButtonTheme}"
                     Command="{Binding TranslateCommandGroup}"/>
 
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="20"/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
 
-                <TextBlock Text="From language:" Foreground="White"/>
-                <TextBlock Grid.Row="1" 
-                           Text="{Binding CacheFromLanguage, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
-                           DataContext="{Binding TranslateModel}"
-                           Foreground="White"
-                           />
-            </Grid>
+                <Border Grid.Column="0" Grid.Row="1" Margin="0,0,0,2" Background="#0C1821" Width="90" HorizontalAlignment="Left" CornerRadius="10">
+
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="0" BlurRadius="5" Color="#CCC9DC"/>
+                </Border.Effect>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="16"/>
+                        <RowDefinition Height="5"/>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="From language" FontSize="11" Foreground="#797979" HorizontalAlignment="Center"/>
+                    <Separator Grid.Row="1" Background="#CCC9DC" Width="50" >
+                        <Separator.RenderTransform>
+                            <ScaleTransform ScaleY="0.5"/>
+                        </Separator.RenderTransform>
+                    </Separator>
+                    <TextBlock Grid.Row="2" Text="{Binding CacheFromLanguage}" DataContext="{Binding TranslateModel}" HorizontalAlignment="Center" FontSize="11" Foreground="#797979"/>
+                </Grid>
+
+            </Border>
+
+
+
+
+
+            <Border Grid.Column="2" Grid.Row="1" Margin="0,0,0,2" Background="#0C1821" Width="90" HorizontalAlignment="Right" CornerRadius="10">
+              
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="0" BlurRadius="5" Color="#CCC9DC"/>
+                </Border.Effect>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="16"/>
+                        <RowDefinition Height="5"/>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="To language" FontSize="11" Foreground="#797979" HorizontalAlignment="Center"/>
+                    <Separator Grid.Row="1" Background="#CCC9DC" Width="50" >
+                        <Separator.RenderTransform>
+                            <ScaleTransform ScaleY="0.5"/>
+                        </Separator.RenderTransform>
+                    </Separator>
+                    <TextBlock Grid.Row="2" Text="{Binding CacheToLanguage}" DataContext="{Binding TranslateModel}" HorizontalAlignment="Center" FontSize="11" Foreground="#797979"/>
+                </Grid>
+                
+            </Border>
+            
+        </Grid>
     </Grid>
-</Grid>
-
 
 </UserControl>

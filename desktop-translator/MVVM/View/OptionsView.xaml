@@ -19,7 +19,8 @@
                      DataContext="{Binding OptionsModel}"
                      SelectedValue="{Binding FromLanguage, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                      DisplayMemberPath="Key"
-                     SelectedValuePath="Value"/>
+                     SelectedValuePath="Value">
+            </ListBox>
 
             <ListBox Grid.Column="1" 
                      ItemsSource="{Binding Languages}"
