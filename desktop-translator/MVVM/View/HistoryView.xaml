@@ -9,11 +9,10 @@
              Background="Transparent">
 
 
-    <Grid>
+    <Grid ScrollViewer.VerticalScrollBarVisibility="Visible">
         <DataGrid ItemsSource="{Binding Path=Phrases}"
                   AutoGenerateColumns="False" 
-                  IsReadOnly="True"
-                  IsHitTestVisible="False">
+                  IsReadOnly="True">
 
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Date/Time" 

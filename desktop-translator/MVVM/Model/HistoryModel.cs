@@ -25,7 +25,7 @@ namespace desktop_translator.MVVM.Model
                         command.Parameters.AddWithValue("@TranslatedText", TranslatedText);
 
                         DateTime now = DateTime.Now;
-                        string formattedData = now.ToString("MM/dd/yy hh:mm");
+                        string formattedData = now.ToString("MM/dd/yy hh:mm:ss");
 
                         command.Parameters.AddWithValue("@Now", formattedData);
                         command.ExecuteNonQuery();
@@ -47,7 +47,7 @@ namespace desktop_translator.MVVM.Model
 
             if (m_dbConnection.State == ConnectionState.Open)
             {
-                string sql = "select * from Phrases";
+                string sql = "select * from Phrases order by UPDDTTM desc";
                 SQLiteDataAdapter adapter = new SQLiteDataAdapter(sql, m_dbConnection);
                 table = new DataTable();
                 adapter.Fill(table);
