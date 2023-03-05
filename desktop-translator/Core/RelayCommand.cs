@@ -24,6 +24,7 @@ namespace desktop_translator.Core
             return _canExecute == null || _canExecute(parameter);
         }
 
+
         public void Execute(object parameter)
         {
             _execute(parameter);
