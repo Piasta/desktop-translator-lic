@@ -19,7 +19,7 @@
                      DataContext="{Binding OptionsModel}"
                      SelectedValue="{Binding FromLanguage, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                      DisplayMemberPath="Key"
-                     SelectedValuePath="Value">
+                     SelectedValuePath="Key">
             </ListBox>
 
             <ListBox Grid.Column="1" 
@@ -27,7 +27,7 @@
                      DataContext="{Binding OptionsModel}"
                      SelectedValue="{Binding ToLanguage, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                      DisplayMemberPath="Key"
-                     SelectedValuePath="Value"/>
+                     SelectedValuePath="Key"/>
         </Grid>
     </Border>
 </UserControl>

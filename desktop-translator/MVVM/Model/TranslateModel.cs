@@ -19,7 +19,7 @@ namespace desktop_translator.MVVM.Model
                 OnPropertyChanged("RawText");
                 if (string.IsNullOrEmpty(_rawText))
                 {
-                    TranslatedText = null;
+                    _translatedText = null;
                 }
             }
         }
@@ -46,56 +46,90 @@ namespace desktop_translator.MVVM.Model
             }
         }
 
-        private string _cacheToLanguage = "Not selected";
-        public string CacheToLanguage
+        private string _toLanguageKey = "Not selected";
+        public string ToLanguageKey
         {
-            get { return _cacheToLanguage; }
+            get { return _toLanguageKey; }
             set
             {
-                _cacheToLanguage = value;
-                OnPropertyChanged(nameof(CacheToLanguage));
-                Console.WriteLine("Translate model TO Cache " + CacheToLanguage);
+                _toLanguageKey = value;
+                OnPropertyChanged(nameof(ToLanguageKey));
+                Console.WriteLine("Translate model To language key = " + ToLanguageKey);
 
             }
         }
 
-        private string _cacheFromLanguage;
-        public string CacheFromLanguage
+        private string _toLanguageValue;
+        public string ToLanguageValue
         {
-            get { return _cacheFromLanguage; }
+            get { return _toLanguageValue; }
             set
             {
-                _cacheFromLanguage = value;
-                OnPropertyChanged(nameof(CacheFromLanguage));
-                Console.WriteLine("Translate model FROM Cache " + CacheFromLanguage);
+                _toLanguageValue = value;
+                OnPropertyChanged(nameof(ToLanguageValue));
+                Console.WriteLine("Translate model To language value = " + ToLanguageValue);
 
             }
         }
+
+        private string _fromLanguageKey;
+        public string FromLanguageKey
+        {
+            get { return _fromLanguageKey; }
+            set
+            {
+                _fromLanguageKey = value;
+                OnPropertyChanged(nameof(FromLanguageKey));
+                Console.WriteLine("Translate model From language key = " + FromLanguageKey);
+
+            }
+        }
+
+        private string _fromLanguageValue;
+        public string FromLanguageValue
+        {
+            get { return _fromLanguageValue; }
+            set
+            {
+                _fromLanguageValue = value;
+                OnPropertyChanged(nameof(FromLanguageValue));
+                Console.WriteLine("Translate model From language value = " + FromLanguageValue);
+
+            }
+        }
+
 
         Cache cache = HttpRuntime.Cache;
         public void test()
         {
-            //CacheFromLanguage = (string)cache.Get("fromLanguage").GetType().GetProperty("Value").GetValue(cache.Get("fromLanguage"), null);
-            CacheFromLanguage = (string)cache.Get("fromLanguage");
-            CacheToLanguage = (string)cache.Get("toLanguage");
+            FromLanguageKey = (string)cache.Get("fromLanguage");
+            ToLanguageKey = (string)cache.Get("toLanguage");
+            
+            if (!string.IsNullOrEmpty(_fromLanguageKey) && !string.IsNullOrEmpty(_toLanguageKey))
+            {
+                OptionsModel OptionsModel = new OptionsModel();
+                FromLanguageValue = OptionsModel.Languages[_fromLanguageKey];
+                ToLanguageValue = OptionsModel.Languages[_toLanguageKey];
+            }
         }
 
         public void Translate()
         {
-            if (!string.IsNullOrEmpty(RawText))
+
+            if (!string.IsNullOrEmpty(_rawText))
             {
-                if (!string.IsNullOrEmpty(CacheToLanguage) && CacheToLanguage != "Not selected")
+                if (!string.IsNullOrEmpty(_toLanguageKey) && _toLanguageKey != "Not selected")
                 {
-                    if (IsChecked == true)
+                    if (_isChecked == true)
                     {
-                        CacheFromLanguage = "auto";
+                        _fromLanguageValue = "auto";
                     }
 
-                    if (!string.IsNullOrEmpty(CacheFromLanguage))
+                    if (!string.IsNullOrEmpty(_fromLanguageValue))
                     {
                         try
                         {
-                            var url = $"https://translate.googleapis.com/translate_a/single?client=gtx&sl={CacheFromLanguage}&tl={CacheToLanguage}&dt=t&q={WebUtility.UrlEncode(RawText)}";
+                            var url = $"https://translate.googleapis.com/translate_a/single?client=gtx&sl={_fromLanguageValue}&tl={_toLanguageValue}&dt=t&q={WebUtility.UrlEncode(_rawText)}";
                             var webClient = new WebClient
                             {
                                 Encoding = System.Text.Encoding.UTF8
@@ -104,6 +138,7 @@ namespace desktop_translator.MVVM.Model
                             result = result.Substring(4, result.IndexOf("\"", 4, StringComparison.Ordinal) - 4);
 
                             TranslatedText = result;
+                            Console.WriteLine("Result is = " + result);
                         }
                         catch
                         {
