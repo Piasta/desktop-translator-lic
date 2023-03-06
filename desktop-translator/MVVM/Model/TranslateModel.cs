@@ -19,7 +19,7 @@ namespace desktop_translator.MVVM.Model
                 OnPropertyChanged("RawText");
                 if (string.IsNullOrEmpty(_rawText))
                 {
-                    _translatedText = null;
+                    TranslatedText = null;
                 }
             }
         }
@@ -54,8 +54,6 @@ namespace desktop_translator.MVVM.Model
             {
                 _toLanguageKey = value;
                 OnPropertyChanged(nameof(ToLanguageKey));
-                Console.WriteLine("Translate model To language key = " + ToLanguageKey);
-
             }
         }
 
@@ -67,12 +65,10 @@ namespace desktop_translator.MVVM.Model
             {
                 _toLanguageValue = value;
                 OnPropertyChanged(nameof(ToLanguageValue));
-                Console.WriteLine("Translate model To language value = " + ToLanguageValue);
-
             }
         }
 
-        private string _fromLanguageKey;
+        private string _fromLanguageKey = "Auto";
         public string FromLanguageKey
         {
             get { return _fromLanguageKey; }
@@ -80,11 +76,8 @@ namespace desktop_translator.MVVM.Model
             {
                 _fromLanguageKey = value;
                 OnPropertyChanged(nameof(FromLanguageKey));
-                Console.WriteLine("Translate model From language key = " + FromLanguageKey);
-
             }
         }
-
         private string _fromLanguageValue;
         public string FromLanguageValue
         {
@@ -94,37 +87,49 @@ namespace desktop_translator.MVVM.Model
                 _fromLanguageValue = value;
                 OnPropertyChanged(nameof(FromLanguageValue));
                 Console.WriteLine("Translate model From language value = " + FromLanguageValue);
-
             }
         }
 
+        OptionsModel OptionsModel = new OptionsModel();
 
         Cache cache = HttpRuntime.Cache;
-        public void test()
+        public void LanguagesValidation()
         {
             FromLanguageKey = (string)cache.Get("fromLanguage");
             ToLanguageKey = (string)cache.Get("toLanguage");
-            
-            if (!string.IsNullOrEmpty(_fromLanguageKey) && !string.IsNullOrEmpty(_toLanguageKey))
+
+            if (string.IsNullOrEmpty(_toLanguageKey))
             {
-                OptionsModel OptionsModel = new OptionsModel();
-                FromLanguageValue = OptionsModel.Languages[_fromLanguageKey];
-                ToLanguageValue = OptionsModel.Languages[_toLanguageKey];
+                ToLanguageKey = "Not selected";
+            }
+            if (!string.IsNullOrEmpty(_toLanguageKey) && _toLanguageKey != "Not selected")
+            {
+                _toLanguageValue = OptionsModel.Languages[_toLanguageKey];
+            }
+            if (_isChecked)
+            {
+                FromLanguageKey = "Auto";
+                _fromLanguageValue = "auto"; 
+            }
+            if (!_isChecked && string.IsNullOrEmpty(_fromLanguageKey))
+            {
+                FromLanguageKey = "Not selected";
+                _fromLanguageValue = "";
+            }
+            if (!_isChecked && !string.IsNullOrEmpty(_fromLanguageKey) && _fromLanguageKey != "Not selected")
+            {
+                _fromLanguageValue = OptionsModel.Languages[_fromLanguageKey];
             }
         }
 
         public void Translate()
         {
+            LanguagesValidation();
 
             if (!string.IsNullOrEmpty(_rawText))
             {
                 if (!string.IsNullOrEmpty(_toLanguageKey) && _toLanguageKey != "Not selected")
                 {
-                    if (_isChecked == true)
-                    {
-                        _fromLanguageValue = "auto";
-                    }
-
                     if (!string.IsNullOrEmpty(_fromLanguageValue))
                     {
                         try
@@ -148,11 +153,13 @@ namespace desktop_translator.MVVM.Model
                     else
                     {
                         MessageBox.Show("From language has been not selected.");
+                        FromLanguageKey = "Not selected";
                     }
                 }
                 else
                 {
                     MessageBox.Show("To language has been not selected.");
+                    ToLanguageKey = "Not selected";
                 }
             }
         }

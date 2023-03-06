@@ -8,14 +8,53 @@
              d:DesignHeight="300" d:DesignWidth="570"
              Background="Transparent">
 
-    <Border Background="#95A">
+    <Border Background="Transparent">
         <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <ListBox ItemsSource="{Binding Languages}"
+
+            <Border Grid.ColumnSpan="2" 
+                    Background="#0C1821" 
+                    HorizontalAlignment="Stretch" 
+                    CornerRadius="10"
+                    Padding="10,0,0,3">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+
+                    <TextBlock Text="Choose from language:"
+                               VerticalAlignment="Center"
+                               Foreground="#797979"
+                               FontSize="14"/>
+
+                    <TextBlock Grid.Column="1" 
+                               Text="Choose to language:"
+                               VerticalAlignment="Center"
+                               Foreground="#797979"
+                               FontSize="14"
+                               FontWeight="SemiBold"/>
+
+                </Grid>
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="0" BlurRadius="10" Color="#FF7AB9F0"/>
+                </Border.Effect>
+            </Border>
+
+
+
+            <ListBox Grid.Row="1" 
+                     ItemsSource="{Binding Languages}"
                      DataContext="{Binding OptionsModel}"
                      SelectedValue="{Binding FromLanguage, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                      DisplayMemberPath="Key"
@@ -23,11 +62,15 @@
             </ListBox>
 
             <ListBox Grid.Column="1" 
+                     Grid.Row="1"
                      ItemsSource="{Binding Languages}"
                      DataContext="{Binding OptionsModel}"
                      SelectedValue="{Binding ToLanguage, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                      DisplayMemberPath="Key"
-                     SelectedValuePath="Key"/>
+                     SelectedValuePath="Key"
+                     Background="Transparent"
+                     Foreground="#797979"
+                     FontSize="13"/>
         </Grid>
     </Border>
 </UserControl>

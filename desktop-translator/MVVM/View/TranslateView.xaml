@@ -114,7 +114,7 @@
                             <ScaleTransform ScaleY="0.5"/>
                         </Separator.RenderTransform>
                     </Separator>
-                    <TextBlock Grid.Row="2" Text="{Binding FromLanguageKey}" DataContext="{Binding TranslateModel}" HorizontalAlignment="Center" FontSize="11" Foreground="#797979"/>
+                    <TextBlock Grid.Row="2" Text="{Binding FromLanguageKey, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" DataContext="{Binding TranslateModel}" HorizontalAlignment="Center" FontSize="11" Foreground="#797979"/>
                 </Grid>
 
             </Border>
@@ -141,7 +141,7 @@
                             <ScaleTransform ScaleY="0.5"/>
                         </Separator.RenderTransform>
                     </Separator>
-                    <TextBlock Grid.Row="2" Text="{Binding ToLanguageKey}" DataContext="{Binding TranslateModel}" HorizontalAlignment="Center" FontSize="11" Foreground="#797979"/>
+                    <TextBlock Grid.Row="2" Text="{Binding ToLanguageKey, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" DataContext="{Binding TranslateModel}" HorizontalAlignment="Center" FontSize="11" Foreground="#797979"/>
                 </Grid>
                 
             </Border>

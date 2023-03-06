@@ -17,12 +17,14 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Date/Time" 
                                     Binding="{Binding UPDDTTM}"
-                                    Width="106" >
+                                    Width="106"
+                                    FontSize="12">
                 </DataGridTextColumn>
 
                 <DataGridTextColumn Header="Typed text" 
                                     Binding="{Binding TypedText}" 
-                                    Width="*">
+                                    Width="*"
+                                    FontSize="14">
 
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="{x:Type TextBlock}">
@@ -33,7 +35,8 @@
 
                 <DataGridTextColumn Header="Translated text" 
                                     Binding="{Binding TranslatedText}" 
-                                    Width="*">
+                                    Width="*"
+                                    FontSize="14">
 
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="{x:Type TextBlock}">

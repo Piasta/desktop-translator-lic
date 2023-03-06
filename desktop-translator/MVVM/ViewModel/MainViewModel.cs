@@ -42,7 +42,7 @@ namespace desktop_translator.MVVM.ViewModel
 
             TranslateViewCommand = new RelayCommand(o => {
                 CurrentView = TranslateVM;
-                TranslateVM.TranslateModel.test();
+                TranslateVM.TranslateModel.LanguagesValidation();
             });
 
             HistoryViewCommand = new RelayCommand(o => {
