@@ -29,13 +29,11 @@
                                         BorderBrush="{TemplateBinding BorderBrush}"
                                         Background="{TemplateBinding Background}"
                                         CornerRadius="10"
-                                        Padding="6">    
+                                        Padding="6">
                                     <ContentPresenter Content="{TemplateBinding Content}"
                                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                                      SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-
-   
+                                                      SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                                 </Border>
                             </ControlTemplate>
                         </Setter.Value>

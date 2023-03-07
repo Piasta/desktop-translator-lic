@@ -33,14 +33,17 @@
                     </Grid.ColumnDefinitions>
 
 
-                    <TextBlock Text="Choose from language:"
+                    <TextBlock Text="Choose from language"
                                VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
                                Foreground="#797979"
-                               FontSize="14"/>
+                               FontSize="14"
+                               FontWeight="SemiBold"/>
 
                     <TextBlock Grid.Column="1" 
-                               Text="Choose to language:"
+                               Text="Choose to language"
                                VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
                                Foreground="#797979"
                                FontSize="14"
                                FontWeight="SemiBold"/>
@@ -58,7 +61,8 @@
                      DataContext="{Binding OptionsModel}"
                      SelectedValue="{Binding FromLanguage, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                      DisplayMemberPath="Key"
-                     SelectedValuePath="Key">
+                     SelectedValuePath="Key"
+                     Style="{StaticResource ListBoxTheme}">
             </ListBox>
 
             <ListBox Grid.Column="1" 
@@ -68,9 +72,7 @@
                      SelectedValue="{Binding ToLanguage, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                      DisplayMemberPath="Key"
                      SelectedValuePath="Key"
-                     Background="Transparent"
-                     Foreground="#797979"
-                     FontSize="13"/>
+                     Style="{StaticResource ListBoxTheme}"/>
         </Grid>
     </Border>
 </UserControl>

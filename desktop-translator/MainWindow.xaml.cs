@@ -44,7 +44,7 @@ namespace desktop_translator
 
         private void max_bt_maximalize(object sender, MouseButtonEventArgs e)
         {
-            if(this.WindowState == WindowState.Normal)
+            if(WindowState == WindowState.Normal)
             {
                 this.WindowState = WindowState.Maximized;
             }

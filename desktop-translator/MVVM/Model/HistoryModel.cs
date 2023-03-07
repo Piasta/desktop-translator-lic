@@ -25,7 +25,7 @@ namespace desktop_translator.MVVM.Model
                         command.Parameters.AddWithValue("@TranslatedText", TranslatedText);
 
                         DateTime now = DateTime.Now;
-                        string formattedData = now.ToString("MM/dd/yy hh:mm:ss");
+                        string formattedData = now.ToString("hh:mm:ss MM/dd/yy");
 
                         command.Parameters.AddWithValue("@Now", formattedData);
                         command.ExecuteNonQuery();
