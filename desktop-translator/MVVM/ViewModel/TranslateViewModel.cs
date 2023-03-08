@@ -1,23 +1,26 @@
-﻿using desktop_translator.Core;
-using desktop_translator.MVVM.Model;
-using System;
-using System.Collections.Generic;
-using System.Windows;
-using System.Windows.Input;
-
-namespace desktop_translator.MVVM.ViewModel
+﻿namespace desktop_translator.MVVM.ViewModel
 {
-    class TranslateViewModel : ObservableObject
+    using System.Collections.Generic;
+    using System.Windows;
+    using System.Windows.Input;
+    using desktop_translator.Core;
+    using desktop_translator.MVVM.Model;
+
+    internal class TranslateViewModel : ObservableObject
     {
         private TranslateModel translateModel;
 
         public TranslateModel TranslateModel
         {
-            get { return translateModel; }
+            get
+            {
+                return this.translateModel;
+            }
+
             set
             {
-                translateModel = value;
-                OnPropertyChanged("TranslateModel");
+                this.translateModel = value;
+                this.OnPropertyChanged(nameof(this.TranslateModel));
             }
         }
 
@@ -25,38 +28,53 @@ namespace desktop_translator.MVVM.ViewModel
 
         public HistoryModel HistoryModel
         {
-            get { return historyModel; }
+            get
+            {
+                return historyModel;
+            }
+
             set
             {
-                historyModel = value;
-                OnPropertyChanged("HistoryModel");
+                this.historyModel = value;
+                OnPropertyChanged(nameof(this.HistoryModel));
             }
         }
 
-        private OptionsModel _optionsModel;
+        private OptionsModel optionsModel;
 
         public OptionsModel OptionsModel
         {
-            get { return _optionsModel; }
+            get
+            {
+                return this.optionsModel;
+            }
+
             set
             {
-                _optionsModel = value;
-                OnPropertyChanged("OptionsModel");
+                this.optionsModel = value;
+                this.OnPropertyChanged(nameof(this.OptionsModel));
             }
         }
 
-
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TranslateViewModel"/> class.
+        /// </summary>
         public TranslateViewModel()
         {
-            TranslateModel = new TranslateModel();
-            HistoryModel = new HistoryModel();
-            OptionsModel = new OptionsModel();
+            this.TranslateModel = new TranslateModel();
+            this.HistoryModel = new HistoryModel();
+            this.OptionsModel = new OptionsModel();
         }
 
+        /// <summary>
+        /// Gets command which execute Translate method from TranslateModel.
+        /// </summary>
+        public ICommand TranslateCommand => new RelayCommand(this.Translate, this.CanExecuteTranslate);
 
-        public ICommand TranslateCommand => new RelayCommand(Translate, CanExecuteTranslate);
-
-        public ICommand DbInsertCommand => new RelayCommand(DbInsert, CanExecuteInsert);
+        /// <summary>
+        /// Gets command which execute DbInsert method from HistoryModel.
+        /// </summary>
+        public ICommand DbInsertCommand => new RelayCommand(this.DbInsert, this.CanExecuteInsert);
 
         private bool CanExecuteTranslate(object parameter)
         {
@@ -70,40 +88,34 @@ namespace desktop_translator.MVVM.ViewModel
 
         private void Translate(object parameter)
         {
-            TranslateModel.Translate();
+            this.TranslateModel.Translate();
         }
 
         private void DbInsert(object parameter)
         {
-            HistoryModel.DbInsert(TranslateModel.RawText, TranslateModel.TranslatedText);
+            this.HistoryModel.DbInsert(this.TranslateModel.RawText, this.TranslateModel.TranslatedText);
         }
 
-        private CommandGroup _translateCommandGroup;
+        /// <summary>
+        /// Gets commandgroup after combine TranslateCommand & DbInsertCommand.
+        /// </summary>
+        private CommandGroup translateCommandGroup;
 
         public CommandGroup TranslateCommandGroup
         {
             get
             {
-                if (_translateCommandGroup == null)
+                if (this.translateCommandGroup == null)
                 {
-                    _translateCommandGroup = new CommandGroup(new List<ICommand>
+                    this.translateCommandGroup = new CommandGroup(new List<ICommand>
                 {
-                    TranslateCommand,
-                    DbInsertCommand
-                    });
+                    this.TranslateCommand,
+                    this.DbInsertCommand,
+                });
                 }
-                return _translateCommandGroup;
-            }
-        }
-        
-        public void HandleHotKey(object parameter, KeyEventArgs e)
-        {
-            if (e.Key == Key.V && Keyboard.Modifiers == ModifierKeys.Control)
-            {
-                TranslateModel.RawText = Clipboard.GetText();
-                TranslateCommandGroup.Execute(null);
+
+                return this.translateCommandGroup;
             }
         }
     }
 }
-

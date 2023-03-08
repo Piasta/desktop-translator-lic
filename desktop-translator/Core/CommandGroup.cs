@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-
-namespace desktop_translator.Core
+﻿namespace desktop_translator.Core
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using System.Windows.Input;
+
     public class CommandGroup : ICommand
     {
         private readonly List<ICommand> _commands;
@@ -16,11 +16,13 @@ namespace desktop_translator.Core
             _commands = commands.ToList();
         }
 
+        /// <inheritdoc/>
         public bool CanExecute(object parameter)
         {
             return _commands.Any(c => c.CanExecute(parameter));
         }
 
+        /// <inheritdoc/>
         public void Execute(object parameter)
         {
             foreach (var command in _commands)
@@ -32,6 +34,7 @@ namespace desktop_translator.Core
             }
         }
 
+        /// <inheritdoc/>
         public event EventHandler CanExecuteChanged
         {
             add

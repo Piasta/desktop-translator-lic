@@ -12,9 +12,7 @@ namespace desktop_translator.MVVM.View
     {
         public TranslateView()
         {
-            TranslateViewModel Tv = new TranslateViewModel();
             InitializeComponent();
-            this.AddHandler(UIElement.KeyDownEvent, new KeyEventHandler(Tv.HandleHotKey), true);
         }
     }
 }

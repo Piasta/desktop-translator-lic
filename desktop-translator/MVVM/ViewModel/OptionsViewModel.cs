@@ -1,29 +1,32 @@
-﻿using desktop_translator.Core;
-using desktop_translator.MVVM.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace desktop_translator.MVVM.ViewModel
+﻿namespace desktop_translator.MVVM.ViewModel
 {
-    class OptionsViewModel : ObservableObject
+    using desktop_translator.Core;
+    using desktop_translator.MVVM.Model;
+
+    internal class OptionsViewModel : ObservableObject
     {
-        private OptionsModel _optionsModel;
+        private OptionsModel optionsModel;
+
         public OptionsModel OptionsModel
         {
-            get { return _optionsModel; }
+            get
+            {
+                return this.optionsModel;
+            }
+
             set
             {
-                _optionsModel = value;
-                OnPropertyChanged("OptionsModel");
+                this.optionsModel = value;
+                this.OnPropertyChanged("OptionsModel");
             }
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OptionsViewModel"/> class.
+        /// </summary>
         public OptionsViewModel()
         {
-            OptionsModel = new OptionsModel();
+            this.OptionsModel = new OptionsModel();
         }
     }
 }

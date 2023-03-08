@@ -1,78 +1,117 @@
-﻿using desktop_translator.Core;
-using System;
-using System.Collections.Generic;
-using System.Windows.Input;
-
-namespace desktop_translator.MVVM.ViewModel
+﻿namespace desktop_translator.MVVM.ViewModel
 {
-    class MainViewModel : ObservableObject
+    using System.Collections.Generic;
+    using System.Windows.Input;
+    using desktop_translator.Core;
+
+    internal class MainViewModel : ObservableObject
     {
+        /// <summary>
+        /// Gets or sets command which select TranslateView.
+        /// </summary>
         public RelayCommand TranslateViewCommand { get; set; }
+
+        /// <summary>
+        /// Gets or sets command which select HistoryView.
+        /// </summary>
         public RelayCommand HistoryViewCommand { get; set; }
+
+        /// <summary>
+        /// Gets or sets command which select OptionsView.
+        /// </summary>
         public RelayCommand OptionsViewCommand { get; set; }
+
+        /// <summary>
+        /// Gets or sets command which select InfoView.
+        /// </summary>
         public RelayCommand InfoViewCommand { get; set; }
 
+        /// <summary>
+        /// Gets or sets command which select TranslateView.
+        /// </summary>
         public TranslateViewModel TranslateVM { get; set; }
+
+        /// <summary>
+        /// Gets or sets command which select HistoryView.
+        /// </summary>
         public HistoryViewModel HistoryVM { get; set; }
+
+        /// <summary>
+        /// Gets or sets command which select OptionsView.
+        /// </summary>
         public OptionsViewModel OptionsVM { get; set; }
+
+        /// <summary>
+        /// Gets or sets command which select InfoView.
+        /// </summary>
         public InfoViewModel InfoVM { get; set; }
 
-
-        private object _currentView;
+        private object currentView;
 
         public object CurrentView
         {
-            get { return _currentView; }
+            get
+            {
+                return this.currentView;
+            }
+
             set
             {
-                _currentView = value;
-                OnPropertyChanged("CurrentView");
+                this.currentView = value;
+
+                this.OnPropertyChanged(nameof(this.CurrentView));
             }
         }
 
-
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MainViewModel"/> class.
+        /// </summary>
         public MainViewModel()
         {
-            TranslateVM = new TranslateViewModel();
-            HistoryVM = new HistoryViewModel();
-            OptionsVM = new OptionsViewModel();
-            InfoVM = new InfoViewModel();
+            this.TranslateVM = new TranslateViewModel();
+            this.HistoryVM = new HistoryViewModel();
+            this.OptionsVM = new OptionsViewModel();
+            this.InfoVM = new InfoViewModel();
 
-            CurrentView = TranslateVM;
+            this.CurrentView = this.TranslateVM;
 
-            TranslateViewCommand = new RelayCommand(o => {
-                CurrentView = TranslateVM;
-                TranslateVM.TranslateModel.LanguagesValidation();
+            this.TranslateViewCommand = new RelayCommand(o => {
+                this.CurrentView = this.TranslateVM;
+                this.TranslateVM.TranslateModel.LanguagesValidation();
             });
 
-            HistoryViewCommand = new RelayCommand(o => {
-                CurrentView = HistoryVM;
+            this.HistoryViewCommand = new RelayCommand(o =>
+            {
+                this.CurrentView = this.HistoryVM;
             });
 
-            OptionsViewCommand = new RelayCommand(o => {
-                CurrentView = OptionsVM;
+            this.OptionsViewCommand = new RelayCommand(o =>
+            {
+                this.CurrentView = this.OptionsVM;
             });
 
-            InfoViewCommand = new RelayCommand(o => {
-                CurrentView = InfoVM;
+            this.InfoViewCommand = new RelayCommand(o =>
+            {
+                this.CurrentView = this.InfoVM;
             });
         }
 
-        private CommandGroup _historyCommandGroup;
+        private CommandGroup historyCommandGroup;
 
         public CommandGroup HistoryCommandGroup
         {
             get
             {
-                if (_historyCommandGroup == null)
+                if (this.historyCommandGroup == null)
                 {
-                    _historyCommandGroup = new CommandGroup(new List<ICommand>
+                    this.historyCommandGroup = new CommandGroup(new List<ICommand>
                 {
-                    HistoryViewCommand,
-                    HistoryVM.DbViewCommand
-                    });
+                    this.HistoryViewCommand,
+                    this.HistoryVM.DbViewCommand,
+                });
                 }
-                return _historyCommandGroup;
+
+                return this.historyCommandGroup;
             }
         }
     }

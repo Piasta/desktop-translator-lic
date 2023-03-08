@@ -1,45 +1,56 @@
-﻿using desktop_translator.Core;
-using desktop_translator.MVVM.Model;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Windows.Input;
-
-namespace desktop_translator.MVVM.ViewModel
+﻿namespace desktop_translator.MVVM.ViewModel
 {
-    class HistoryViewModel : ObservableObject
-    {
+    using System.Data;
+    using System.Windows.Input;
+    using desktop_translator.Core;
+    using desktop_translator.MVVM.Model;
 
-        private HistoryModel _historyModel;
+    internal class HistoryViewModel : ObservableObject
+    {
+        private HistoryModel historyModel;
 
         public HistoryModel HistoryModel
         {
-            get { return _historyModel; }
+            get
+            {
+                return this.historyModel;
+            }
+
             set
             {
-                _historyModel = value;
-                OnPropertyChanged("HistoryModel");
+                this.historyModel = value;
+                this.OnPropertyChanged(nameof(this.HistoryModel));
             }
         }
 
-        private DataTable _phrases;
+        private DataTable phrases;
 
         public DataTable Phrases
         {
-            get { return _phrases; }
+            get
+            {
+                return this.phrases;
+            }
+
             set
             {
-                _phrases = value;
-                OnPropertyChanged("Phrases");
+                this.phrases = value;
+                this.OnPropertyChanged(nameof(this.Phrases));
             }
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HistoryViewModel"/> class.
+        /// </summary>
         public HistoryViewModel()
         {
-            HistoryModel = new HistoryModel();
+            this.HistoryModel = new HistoryModel();
         }
 
-        public ICommand DbViewCommand => new RelayCommand(DbView, CanExecuteView);
+        /// <summary>
+        /// Gets command which execute DbView method which include DbView and table with created data.
+        /// </summary>
+        public ICommand DbViewCommand => new RelayCommand(this.DbView, this.CanExecuteView);
 
         private bool CanExecuteView(object parameter)
         {
@@ -48,8 +59,8 @@ namespace desktop_translator.MVVM.ViewModel
 
         private void DbView(object parameter)
         {
-            HistoryModel.DbView();
-            Phrases = HistoryModel.table;
+            this.HistoryModel.DbView();
+            this.Phrases = this.HistoryModel.table;
         }
     }
 }

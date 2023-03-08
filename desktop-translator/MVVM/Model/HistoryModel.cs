@@ -12,31 +12,31 @@ namespace desktop_translator.MVVM.Model
         {
             if (!string.IsNullOrEmpty(TypedText) && !string.IsNullOrEmpty(TranslatedText))
             {
-                
-                    string dbPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "HistoryDB.db");
-                    SQLiteConnection m_dbConnection = new SQLiteConnection("Data Source=" + dbPath + ";Version=3;");
-                    m_dbConnection.Open();
 
-                    if (m_dbConnection.State == ConnectionState.Open)
-                    {
-                        string sql = "insert into Phrases (TypedText, TranslatedText, UPDDTTM) values (@TypedText, @TranslatedText, @Now)";
-                        SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
-                        command.Parameters.AddWithValue("@TypedText", TypedText);
-                        command.Parameters.AddWithValue("@TranslatedText", TranslatedText);
+                string dbPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "HistoryDB.db");
+                SQLiteConnection m_dbConnection = new SQLiteConnection("Data Source=" + dbPath + ";Version=3;");
+                m_dbConnection.Open();
 
-                        DateTime now = DateTime.Now;
-                        string formattedData = now.ToString("hh:mm:ss MM/dd/yy");
+                if (m_dbConnection.State == ConnectionState.Open)
+                {
+                    string sql = "insert into Phrases (TypedText, TranslatedText, UPDDTTM) values (@TypedText, @TranslatedText, @Now)";
+                    SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
+                    command.Parameters.AddWithValue("@TypedText", TypedText);
+                    command.Parameters.AddWithValue("@TranslatedText", TranslatedText);
 
-                        command.Parameters.AddWithValue("@Now", formattedData);
-                        command.ExecuteNonQuery();
-                    }
-                    else
-                    {
-                        MessageBox.Show("DbInsertBREAK");
-                    }
-                    m_dbConnection.Close();
+                    DateTime now = DateTime.Now;
+                    string formattedData = now.ToString("hh:mm:ss MM/dd/yy");
+
+                    command.Parameters.AddWithValue("@Now", formattedData);
+                    command.ExecuteNonQuery();
                 }
+                else
+                {
+                    MessageBox.Show("DbInsertBREAK");
+                }
+                m_dbConnection.Close();
             }
+        }
 
         public DataTable table;
         public void DbView()
@@ -60,4 +60,3 @@ namespace desktop_translator.MVVM.Model
         }
     }
 }
-
