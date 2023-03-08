@@ -35,16 +35,16 @@
                     <TextBlock Text="Choose from language"
                                VerticalAlignment="Center"
                                HorizontalAlignment="Center"
-                               Foreground="#797979"
-                               FontSize="14"
+                               Foreground="#B6B6B6"
+                               FontSize="15"
                                FontWeight="SemiBold"/>
 
                     <TextBlock Grid.Column="1" 
                                Text="Choose to language"
                                VerticalAlignment="Center"
                                HorizontalAlignment="Center"
-                               Foreground="#797979"
-                               FontSize="14"
+                               Foreground="#B6B6B6"
+                               FontSize="15"
                                FontWeight="SemiBold"/>
 
                 </Grid>

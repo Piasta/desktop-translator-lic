@@ -13,7 +13,7 @@
                     <Setter Property="BorderBrush" Value="#FF3C3C3C"/>
                     <Setter Property="FontSize" Value="14"/>
                     <Setter Property="Height" Value="31"/>
-                    <Setter Property="Foreground" Value="#797979"/>
+                    <Setter Property="Foreground" Value="#B6B6B6"/>
                     <Setter Property="VerticalAlignment" Value="Center"/>
                     <Setter Property="HorizontalAlignment" Value="Stretch"/>
                     <Setter Property="HorizontalContentAlignment" Value="Center"/>

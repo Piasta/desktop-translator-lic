@@ -8,7 +8,71 @@
              d:DesignHeight="300" d:DesignWidth="570"
              Background="Transparent">
 
-    <Border Background="Coral">
+    <Border Background="Transparent">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"/>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
 
+            <Grid.ColumnDefinitions>
+            </Grid.ColumnDefinitions>
+
+
+            <Border Grid.ColumnSpan="3" 
+                    Background="#0C1821" 
+                    HorizontalAlignment="Stretch" 
+                    CornerRadius="10">
+
+                <TextBlock Text="EaZy Talk"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Foreground="#B6B6B6"
+                               FontSize="15"
+                               FontWeight="SemiBold"/>
+
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="0" BlurRadius="10" Color="#FF7AB9F0"/>
+                </Border.Effect>
+            </Border>
+            <TextBlock Grid.Row="1"
+                       Grid.Column="1" 
+                       Text="Hello, I'm Piotr Piasta and this is my desktop application called EaZy Talk. You can use this project to translate sentences from foreign languages and saves your history in database automatically!" 
+                       TextWrapping="Wrap"
+                       TextAlignment="Center"
+                       Foreground="#B6B6B6"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="15"/>
+            <TextBlock Grid.Row="2"
+                       Grid.Column="1"
+                       Text="! IMPORTANT !"
+                       FontWeight="SemiBold"
+                       Foreground="DarkRed"
+                       FontSize="16"
+                       HorizontalAlignment="Center"
+                       TextWrapping="Wrap"/>
+
+            <TextBlock Grid.Row="2"
+                       Text="The entired expressions will be translated only up to the end of the sentence."
+                       FontSize="15"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Foreground="#B6B6B6"
+                       TextWrapping="Wrap"/>
+
+            <TextBlock Grid.Row="3"
+                       Grid.Column="1" 
+                       Text="To create it, I used the Google Translate API and SQLite database, which is sufficient for such a small project like this."
+                       TextWrapping="Wrap"
+                       TextAlignment="Center"
+                       Foreground="#B6B6B6"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="15"/>
+
+        </Grid>
     </Border>
 </UserControl>

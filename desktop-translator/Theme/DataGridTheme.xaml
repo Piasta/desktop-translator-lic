@@ -6,7 +6,7 @@
         <Setter Property="BorderBrush" Value="DarkGray" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="RowBackground" Value="Transparent" />
-        <Setter Property="Foreground" Value="#797979" />
+        <Setter Property="Foreground" Value="#B6B6B6" />
         <Setter Property="GridLinesVisibility" Value="Horizontal"/>
         <Setter Property="HorizontalGridLinesBrush" Value="#FF3C3C3C" />
         <Setter Property="HeadersVisibility" Value="Column" />
@@ -15,7 +15,7 @@
             <Setter.Value>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="#0C1821" />
-                    <Setter Property="Foreground" Value="#797979" />
+                    <Setter Property="Foreground" Value="#B6B6B6" />
                     <Setter Property="HorizontalContentAlignment" Value="Left" />
                     <Setter Property="VerticalContentAlignment" Value="Center" />
                     <Setter Property="BorderThickness" Value="0" />
@@ -47,6 +47,5 @@
     <Style TargetType="{x:Type DataGridCell}">
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="Margin" Value="4 0 0 0" />
-        <Setter Property="Height" Value="31"/>
     </Style>
 </ResourceDictionary>
