@@ -15,7 +15,7 @@
                   IsReadOnly="True">
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Date/Time" 
+                <DataGridTextColumn Header="Date/Time"
                                     Binding="{Binding UPDDTTM}"
                                     Width="106"
                                     FontSize="12">

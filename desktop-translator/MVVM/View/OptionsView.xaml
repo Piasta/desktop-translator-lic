@@ -24,8 +24,7 @@
             <Border Grid.ColumnSpan="2" 
                     Background="#0C1821" 
                     HorizontalAlignment="Stretch" 
-                    CornerRadius="10"
-                    Padding="10,0,0,3">
+                    CornerRadius="10">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
