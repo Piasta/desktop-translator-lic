@@ -1,9 +1,13 @@
-﻿namespace desktop_translator.MVVM.ViewModel
+﻿// <copyright file="HistoryViewModel.cs" company="Piasta-company">
+// Copyright (c) Piasta-company. All rights reserved.
+// </copyright>
+
+namespace Desktop_translator.MVVM.ViewModel
 {
     using System.Data;
     using System.Windows.Input;
-    using desktop_translator.Core;
-    using desktop_translator.MVVM.Model;
+    using Desktop_translator.Core;
+    using Desktop_translator.MVVM.Model;
 
     internal class HistoryViewModel : ObservableObject
     {

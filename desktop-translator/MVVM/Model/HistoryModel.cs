@@ -1,10 +1,10 @@
-﻿using desktop_translator.Core;
+﻿using Desktop_translator.Core;
 using System;
 using System.Data;
 using System.Data.SQLite;
 using System.Windows;
 
-namespace desktop_translator.MVVM.Model
+namespace Desktop_translator.MVVM.Model
 {
     class HistoryModel : ObservableObject
     {

@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace desktop_translator.Core
+namespace Desktop_translator.Core
 {
     class ObservableObject : INotifyPropertyChanged
     {

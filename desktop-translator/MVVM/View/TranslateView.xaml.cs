@@ -1,9 +1,9 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using desktop_translator.MVVM.ViewModel;
+using Desktop_translator.MVVM.ViewModel;
 
-namespace desktop_translator.MVVM.View
+namespace Desktop_translator.MVVM.View
 {
     /// <summary>
     /// Interaction logic for TranslateView.xaml

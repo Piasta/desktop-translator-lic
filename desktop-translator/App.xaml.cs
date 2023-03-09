@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace desktop_translator
+namespace Desktop_translator
 {
     /// <summary>
     /// Interaction logic for App.xaml

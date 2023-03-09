@@ -1,10 +1,14 @@
-﻿namespace desktop_translator.MVVM.ViewModel
+﻿// <copyright file="TranslateViewModel.cs" company="Piasta-company">
+// Copyright (c) Piasta-company. All rights reserved.
+// </copyright>
+
+namespace Desktop_translator.MVVM.ViewModel
 {
     using System.Collections.Generic;
     using System.Windows;
     using System.Windows.Input;
-    using desktop_translator.Core;
-    using desktop_translator.MVVM.Model;
+    using Desktop_translator.Core;
+    using Desktop_translator.MVVM.Model;
 
     internal class TranslateViewModel : ObservableObject
     {

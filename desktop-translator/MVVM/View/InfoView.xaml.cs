@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace desktop_translator.MVVM.View
+namespace Desktop_translator.MVVM.View
 {
     /// <summary>
     /// Interaction logic for InfoView.xaml

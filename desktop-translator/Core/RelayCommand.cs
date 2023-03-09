@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace desktop_translator.Core
+namespace Desktop_translator.Core
 {
     class RelayCommand : ICommand
     {

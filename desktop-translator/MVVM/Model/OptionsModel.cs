@@ -1,9 +1,9 @@
-﻿using desktop_translator.Core;
+﻿using Desktop_translator.Core;
 using System;
 using System.Collections.Generic;
 using System.Web;
 
-namespace desktop_translator.MVVM.Model
+namespace Desktop_translator.MVVM.Model
 {
     class OptionsModel : ObservableObject
     {

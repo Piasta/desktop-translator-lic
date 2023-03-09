@@ -1,4 +1,4 @@
-﻿namespace desktop_translator.Core
+﻿namespace Desktop_translator.Core
 {
     using System;
     using System.Collections.Generic;

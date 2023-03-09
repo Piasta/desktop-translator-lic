@@ -187,7 +187,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="stylecop.json" />
+    <AdditionalFiles Include="stylecop.json" />
     <Resource Include="Images\EaZy_Talk.png" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

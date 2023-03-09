@@ -12,10 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using desktop_translator.MVVM.Model;
-using desktop_translator.MVVM.ViewModel;
+using Desktop_translator.MVVM.Model;
+using Desktop_translator.MVVM.ViewModel;
 
-namespace desktop_translator
+namespace Desktop_translator
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

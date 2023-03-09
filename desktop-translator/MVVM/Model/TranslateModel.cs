@@ -1,58 +1,84 @@
-﻿using desktop_translator.Core;
-using System;
-using System.Net;
-using System.Web;
-using System.Web.Caching;
-using System.Windows;
-
-namespace desktop_translator.MVVM.Model
+﻿namespace Desktop_translator.MVVM.Model
 {
-    class TranslateModel : ObservableObject
+    using System;
+    using System.Net;
+    using System.Web;
+    using System.Web.Caching;
+    using System.Windows;
+    using Desktop_translator.Core;
+
+    /// <summary>
+    /// The model in which the methods for the TranslateView are created.
+    /// </summary>
+    internal class TranslateModel : ObservableObject
     {
-        private string _rawText;
+        private string rawText;
+
         public string RawText
         {
-            get { return _rawText; }
+            get
+            {
+                return this.rawText;
+            }
+
             set
             {
-                _rawText = value;
-                OnPropertyChanged("RawText");
-                if (string.IsNullOrEmpty(_rawText))
+                this.rawText = value;
+                this.OnPropertyChanged(nameof(this.RawText));
+                if (string.IsNullOrEmpty(this.rawText))
                 {
-                    TranslatedText = null;
+                    this.TranslatedText = null;
                 }
             }
         }
 
-        private string _translatedText;
+        private string translatedText;
+
         public string TranslatedText
         {
-            get { return _translatedText; }
+            get
+            {
+                return this.translatedText;
+            }
+
             set
             {
-                _translatedText = value;
-                OnPropertyChanged("TranslatedText");
+                this.translatedText = value;
+                this.OnPropertyChanged(nameof(this.TranslatedText));
             }
         }
 
-        private bool _isChecked = true;
+
+        private bool isChecked = true;
+
+        /// <summary>
+        /// Gets or sets a value indicating whether automatic language detection is On/Off.
+        /// </summary>
         public bool IsChecked
         {
-            get { return _isChecked; }
+            get
+            {
+                return this.isChecked;
+            }
+
             set
             {
-                _isChecked = value;
-                OnPropertyChanged("IsChecked");
+                this.isChecked = value;
+                this.OnPropertyChanged(nameof(this.IsChecked));
             }
         }
 
-        private string _toLanguageKey = "Not selected";
+        private string toLanguageKey = "Not selected";
+
+        /// <summary>
+        /// Gets or sets Key of value from cache which are created in HistoryModel dictionary.
+        /// </summary>
         public string ToLanguageKey
         {
-            get { return _toLanguageKey; }
+            get { return toLanguageKey; }
             set
             {
-                _toLanguageKey = value;
+                toLanguageKey = value;
                 OnPropertyChanged(nameof(ToLanguageKey));
             }
         }
@@ -98,25 +124,25 @@ namespace desktop_translator.MVVM.Model
             FromLanguageKey = (string)cache.Get("fromLanguage");
             ToLanguageKey = (string)cache.Get("toLanguage");
 
-            if (string.IsNullOrEmpty(_toLanguageKey))
+            if (string.IsNullOrEmpty(toLanguageKey))
             {
                 ToLanguageKey = "Not selected";
             }
-            if (!string.IsNullOrEmpty(_toLanguageKey) && _toLanguageKey != "Not selected")
+            if (!string.IsNullOrEmpty(toLanguageKey) && toLanguageKey != "Not selected")
             {
-                _toLanguageValue = OptionsModel.Languages[_toLanguageKey];
+                _toLanguageValue = OptionsModel.Languages[toLanguageKey];
             }
-            if (_isChecked)
+            if (isChecked)
             {
                 FromLanguageKey = "Auto";
                 _fromLanguageValue = "auto"; 
             }
-            if (!_isChecked && string.IsNullOrEmpty(_fromLanguageKey))
+            if (!isChecked && string.IsNullOrEmpty(_fromLanguageKey))
             {
                 FromLanguageKey = "Not selected";
                 _fromLanguageValue = "";
             }
-            if (!_isChecked && !string.IsNullOrEmpty(_fromLanguageKey) && _fromLanguageKey != "Not selected")
+            if (!isChecked && !string.IsNullOrEmpty(_fromLanguageKey) && _fromLanguageKey != "Not selected")
             {
                 _fromLanguageValue = OptionsModel.Languages[_fromLanguageKey];
             }
@@ -126,15 +152,15 @@ namespace desktop_translator.MVVM.Model
         {
             LanguagesValidation();
 
-            if (!string.IsNullOrEmpty(_rawText))
+            if (!string.IsNullOrEmpty(rawText))
             {
-                if (!string.IsNullOrEmpty(_toLanguageKey) && _toLanguageKey != "Not selected")
+                if (!string.IsNullOrEmpty(toLanguageKey) && toLanguageKey != "Not selected")
                 {
                     if (!string.IsNullOrEmpty(_fromLanguageValue))
                     {
                         try
                         {
-                            var url = $"https://translate.googleapis.com/translate_a/single?client=gtx&sl={_fromLanguageValue}&tl={_toLanguageValue}&dt=t&q={WebUtility.UrlEncode(_rawText)}";
+                            var url = $"https://translate.googleapis.com/translate_a/single?client=gtx&sl={_fromLanguageValue}&tl={_toLanguageValue}&dt=t&q={WebUtility.UrlEncode(rawText)}";
                             var webClient = new WebClient
                             {
                                 Encoding = System.Text.Encoding.UTF8
