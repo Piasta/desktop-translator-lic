@@ -1,4 +1,8 @@
-﻿namespace Desktop_translator.MVVM.Model
+﻿// <copyright file="TranslateModel.cs" company="Piasta-company">
+// Copyright (c) Piasta-company. All rights reserved.
+// </copyright>
+
+namespace Desktop_translator.MVVM.Model
 {
     using System;
     using System.Net;
@@ -8,7 +12,7 @@
     using Desktop_translator.Core;
 
     /// <summary>
-    /// The model in which the methods for the TranslateView are created.
+    /// The model included methods for the TranslateView.
     /// </summary>
     internal class TranslateModel : ObservableObject
     {
@@ -75,100 +79,139 @@
         /// </summary>
         public string ToLanguageKey
         {
-            get { return toLanguageKey; }
+            get
+            {
+                return this.toLanguageKey;
+            }
+
             set
             {
-                toLanguageKey = value;
-                OnPropertyChanged(nameof(ToLanguageKey));
+                this.toLanguageKey = value;
+                this.OnPropertyChanged(nameof(this.ToLanguageKey));
             }
         }
 
-        private string _toLanguageValue;
+        private string toLanguageValue;
+
+        /// <summary>
+        /// Gets or sets Value of value from cache which are created in HistoryModel dictionary.
+        /// </summary>
         public string ToLanguageValue
         {
-            get { return _toLanguageValue; }
+            get
+            {
+                return this.toLanguageValue;
+            }
+
             set
             {
-                _toLanguageValue = value;
-                OnPropertyChanged(nameof(ToLanguageValue));
+                this.toLanguageValue = value;
+                this.OnPropertyChanged(nameof(this.ToLanguageValue));
             }
         }
 
-        private string _fromLanguageKey = "Auto";
+        private string fromLanguageKey = "Auto";
+
+        /// <summary>
+        /// Gets or sets Key of value from cache which are created in HistoryModel dictionary.
+        /// </summary>
         public string FromLanguageKey
         {
-            get { return _fromLanguageKey; }
+            get
+            {
+                return this.fromLanguageKey;
+            }
+
             set
             {
-                _fromLanguageKey = value;
-                OnPropertyChanged(nameof(FromLanguageKey));
+                this.fromLanguageKey = value;
+                this.OnPropertyChanged(nameof(this.FromLanguageKey));
             }
         }
-        private string _fromLanguageValue;
+
+        private string fromLanguageValue;
+
+        /// <summary>
+        /// Gets or sets Value of value from cache which are created in HistoryModel dictionary.
+        /// </summary>
         public string FromLanguageValue
         {
-            get { return _fromLanguageValue; }
+            get
+            {
+                return this.fromLanguageValue;
+            }
+
             set
             {
-                _fromLanguageValue = value;
-                OnPropertyChanged(nameof(FromLanguageValue));
-                Console.WriteLine("Translate model From language value = " + FromLanguageValue);
+                this.fromLanguageValue = value;
+                this.OnPropertyChanged(nameof(this.FromLanguageValue));
+                Console.WriteLine("Translate model From language value = " + this.FromLanguageValue);
             }
         }
 
-        OptionsModel OptionsModel = new OptionsModel();
+        private readonly OptionsModel optionsModel = new OptionsModel();
+        private readonly Cache cache = HttpRuntime.Cache;
 
-        Cache cache = HttpRuntime.Cache;
+        /// <summary>
+        /// Data validation for Translate method.
+        /// </summary>
         public void LanguagesValidation()
         {
-            FromLanguageKey = (string)cache.Get("fromLanguage");
-            ToLanguageKey = (string)cache.Get("toLanguage");
+            this.FromLanguageKey = (string)this.cache.Get("fromLanguage");
+            this.ToLanguageKey = (string)this.cache.Get("toLanguage");
 
-            if (string.IsNullOrEmpty(toLanguageKey))
+            if (string.IsNullOrEmpty(this.toLanguageKey))
             {
-                ToLanguageKey = "Not selected";
+                this.ToLanguageKey = "Not selected";
             }
-            if (!string.IsNullOrEmpty(toLanguageKey) && toLanguageKey != "Not selected")
+
+            if (!string.IsNullOrEmpty(this.toLanguageKey) && this.toLanguageKey != "Not selected")
             {
-                _toLanguageValue = OptionsModel.Languages[toLanguageKey];
+                this.toLanguageValue = this.optionsModel.Languages[this.toLanguageKey];
             }
-            if (isChecked)
+
+            if (this.isChecked)
             {
-                FromLanguageKey = "Auto";
-                _fromLanguageValue = "auto"; 
+                this.FromLanguageKey = "Auto";
+                this.fromLanguageValue = "auto";
             }
-            if (!isChecked && string.IsNullOrEmpty(_fromLanguageKey))
+
+            if (!this.isChecked && string.IsNullOrEmpty(this.fromLanguageKey))
             {
-                FromLanguageKey = "Not selected";
-                _fromLanguageValue = "";
+                this.FromLanguageKey = "Not selected";
+                this.fromLanguageValue = "";
             }
-            if (!isChecked && !string.IsNullOrEmpty(_fromLanguageKey) && _fromLanguageKey != "Not selected")
+
+            if (!this.isChecked && !string.IsNullOrEmpty(this.fromLanguageKey) && this.fromLanguageKey != "Not selected")
             {
-                _fromLanguageValue = OptionsModel.Languages[_fromLanguageKey];
+                this.fromLanguageValue = this.optionsModel.Languages[this.fromLanguageKey];
             }
         }
 
+        /// <summary>
+        /// Translate method.
+        /// </summary>
         public void Translate()
         {
-            LanguagesValidation();
+            this.LanguagesValidation();
 
-            if (!string.IsNullOrEmpty(rawText))
+            if (!string.IsNullOrEmpty(this.rawText))
             {
-                if (!string.IsNullOrEmpty(toLanguageKey) && toLanguageKey != "Not selected")
+                if (!string.IsNullOrEmpty(this.toLanguageKey) && this.toLanguageKey != "Not selected")
                 {
-                    if (!string.IsNullOrEmpty(_fromLanguageValue))
+                    if (!string.IsNullOrEmpty(this.fromLanguageValue))
                     {
                         try
                         {
-                            var url = $"https://translate.googleapis.com/translate_a/single?client=gtx&sl={_fromLanguageValue}&tl={_toLanguageValue}&dt=t&q={WebUtility.UrlEncode(rawText)}";
-                            var webClient = new WebClient
+                            string url = $"https://translate.googleapis.com/translate_a/single?client=gtx&sl={this.fromLanguageValue}&tl={this.toLanguageValue}&dt=t&q={WebUtility.UrlEncode(this.rawText)}";
+                            WebClient webClient = new WebClient
                             {
-                                Encoding = System.Text.Encoding.UTF8
+                                Encoding = System.Text.Encoding.UTF8,
                             };
-                            var result = webClient.DownloadString(url);
+                            string result = webClient.DownloadString(url);
                             result = result.Substring(4, result.IndexOf("\"", 4, StringComparison.Ordinal) - 4);
 
-                            TranslatedText = result;
+                            this.TranslatedText = result;
                             Console.WriteLine("Result is = " + result);
                         }
                         catch
@@ -179,13 +222,13 @@
                     else
                     {
                         MessageBox.Show("From language has been not selected.");
-                        FromLanguageKey = "Not selected";
+                        this.FromLanguageKey = "Not selected";
                     }
                 }
                 else
                 {
                     MessageBox.Show("To language has been not selected.");
-                    ToLanguageKey = "Not selected";
+                    this.ToLanguageKey = "Not selected";
                 }
             }
         }

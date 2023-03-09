@@ -68,7 +68,7 @@
                 <Grid x:Name="exit_bt"
                   Grid.Row="1"
                   Grid.Column="1"
-                  MouseLeftButtonDown="exit_bt_close"
+                  MouseLeftButtonDown="Exit_bt_close"
                   VerticalAlignment="Center"
                   HorizontalAlignment="Center">
 
@@ -90,7 +90,7 @@
                 <Grid x:Name="min_bt"
                   Grid.Row="1"
                   Grid.Column="2"
-                  MouseLeftButtonDown="min_bt_minimalize">
+                  MouseLeftButtonDown="Min_bt_minimalize">
 
                     <Rectangle Style="{StaticResource min_bt_theme}"/>
 
@@ -106,7 +106,7 @@
                 <Grid x:Name="max_bt" 
                     Grid.Row="1"
                     Grid.Column="3"
-                    MouseLeftButtonDown="max_bt_maximalize">
+                    MouseLeftButtonDown="Max_bt_maximalize">
 
                     <Rectangle Style="{StaticResource max_bt_theme}"/>
 
@@ -125,7 +125,7 @@
                 <Grid x:Name="pin_bt"
                   Grid.Row="1"
                   Grid.Column="4"
-                  MouseLeftButtonDown="pin_bt_topmost">
+                  MouseLeftButtonDown="Pin_bt_topmost">
 
                     <Rectangle Style="{StaticResource pin_bt_theme}"/>
 

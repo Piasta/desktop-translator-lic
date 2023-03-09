@@ -1,28 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿// <copyright file="OptionsView.xaml.cs" company="Piasta-company">
+// Copyright (c) Piasta-company. All rights reserved.
+// </copyright>
 
 namespace Desktop_translator.MVVM.View
 {
+    using System.Windows.Controls;
+
     /// <summary>
-    /// Interaction logic for OptionsView.xaml
+    /// Interaction logic for OptionsView.xaml.
     /// </summary>
     public partial class OptionsView : UserControl
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OptionsView"/> class.
+        /// </summary>
         public OptionsView()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
     }
 }

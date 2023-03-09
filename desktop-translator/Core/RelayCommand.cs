@@ -1,12 +1,20 @@
-﻿using System;
-using System.Windows.Input;
+﻿// <copyright file="RelayCommand.cs" company="Piasta-company">
+// Copyright (c) Piasta-company. All rights reserved.
+// </copyright>
 
 namespace Desktop_translator.Core
 {
-    class RelayCommand : ICommand
+    using System;
+    using System.Windows.Input;
+
+    /// <summary>
+    /// Class responsible for create commands.
+    /// </summary>
+    internal class RelayCommand : ICommand
     {
-        private Action<object> _execute;
-        private Func<object, bool> _canExecute;
+        private readonly Action<object> execute;
+        private readonly Func<object, bool> canExecute;
+
         /// <inheritdoc/>
         public event EventHandler CanExecuteChanged
         {
@@ -16,21 +24,20 @@ namespace Desktop_translator.Core
 
         public RelayCommand(Action<object> execute, Func<object, bool> canExecute = null)
         {
-            _execute = execute;
-            _canExecute = canExecute;
+            this.execute = execute;
+            this.canExecute = canExecute;
         }
 
         /// <inheritdoc/>
         public bool CanExecute(object parameter)
         {
-            return _canExecute == null || _canExecute(parameter);
+            return this.canExecute == null || this.canExecute(parameter);
         }
-
 
         /// <inheritdoc/>
         public void Execute(object parameter)
         {
-            _execute(parameter);
+            this.execute(parameter);
         }
     }
 }

@@ -2,7 +2,9 @@
 // attributes that are applied to this project.
 // Project-level suppressions either have no target or are given
 // a specific target and scoped to a namespace, type, member, etc.
-    
+
+using System.Diagnostics.CodeAnalysis;
+
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1600:Elements should be documented", Justification = "<Pending>", Scope = "member", Target = "~P:Desktop_translator.MVVM.ViewModel.TranslateViewModel.TranslateCommandGroup")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.OrderingRules", "SA1201:Elements should appear in the correct order", Justification = "<Pending>", Scope = "member", Target = "~F:Desktop_translator.MVVM.ViewModel.TranslateViewModel.translateCommandGroup")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1600:Elements should be documented", Justification = "<Pending>", Scope = "type", Target = "~T:Desktop_translator.MVVM.ViewModel.TranslateViewModel")]
@@ -27,4 +29,23 @@
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1600:Elements should be documented", Justification = "<Pending>", Scope = "member", Target = "~P:Desktop_translator.MVVM.Model.TranslateModel.TranslatedText")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.OrderingRules", "SA1201:Elements should appear in the correct order", Justification = "<Pending>", Scope = "member", Target = "~F:Desktop_translator.MVVM.Model.TranslateModel.isChecked")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.OrderingRules", "SA1201:Elements should appear in the correct order", Justification = "<Pending>", Scope = "member", Target = "~F:Desktop_translator.MVVM.Model.TranslateModel.toLanguageKey")]
-
+[assembly: SuppressMessage("StyleCop.CSharp.OrderingRules", "SA1201:Elements should appear in the correct order", Justification = "<Oczekujące>", Scope = "member", Target = "~F:Desktop_translator.MVVM.Model.TranslateModel.toLanguageValue")]
+[assembly: SuppressMessage("StyleCop.CSharp.OrderingRules", "SA1201:Elements should appear in the correct order", Justification = "<Oczekujące>", Scope = "member", Target = "~F:Desktop_translator.MVVM.Model.TranslateModel.optionsModel")]
+[assembly: SuppressMessage("StyleCop.CSharp.OrderingRules", "SA1201:Elements should appear in the correct order", Justification = "<Oczekujące>", Scope = "member", Target = "~F:Desktop_translator.MVVM.Model.TranslateModel.fromLanguageKey")]
+[assembly: SuppressMessage("StyleCop.CSharp.OrderingRules", "SA1201:Elements should appear in the correct order", Justification = "<Oczekujące>", Scope = "member", Target = "~F:Desktop_translator.MVVM.Model.TranslateModel.fromLanguageValue")]
+[assembly: SuppressMessage("StyleCop.CSharp.OrderingRules", "SA1201:Elements should appear in the correct order", Justification = "<Oczekujące>", Scope = "member", Target = "~F:Desktop_translator.MVVM.Model.OptionsModel.toLanguage")]
+[assembly: SuppressMessage("StyleCop.CSharp.LayoutRules", "SA1507:Code should not contain multiple blank lines in a row", Justification = "<Oczekujące>", Scope = "type", Target = "~T:Desktop_translator.MVVM.Model.OptionsModel")]
+[assembly: SuppressMessage("StyleCop.CSharp.OrderingRules", "SA1201:Elements should appear in the correct order", Justification = "<Oczekujące>", Scope = "member", Target = "~F:Desktop_translator.MVVM.Model.OptionsModel.languages")]
+[assembly: SuppressMessage("StyleCop.CSharp.OrderingRules", "SA1201:Elements should appear in the correct order", Justification = "<Oczekujące>", Scope = "member", Target = "~M:Desktop_translator.MVVM.Model.OptionsModel.#ctor")]
+[assembly: SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1600:Elements should be documented", Justification = "<Oczekujące>", Scope = "member", Target = "~M:Desktop_translator.MVVM.Model.OptionsModel.#ctor")]
+[assembly: SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1611:Element parameters should be documented", Justification = "<Oczekujące>", Scope = "member", Target = "~M:Desktop_translator.MVVM.Model.HistoryModel.DbInsert(System.String,System.String)")]
+[assembly: SuppressMessage("StyleCop.CSharp.OrderingRules", "SA1201:Elements should appear in the correct order", Justification = "<Oczekujące>", Scope = "member", Target = "~F:Desktop_translator.MVVM.Model.HistoryModel.table")]
+[assembly: SuppressMessage("StyleCop.CSharp.OrderingRules", "SA1201:Elements should appear in the correct order", Justification = "<Oczekujące>", Scope = "member", Target = "~E:Desktop_translator.Core.CommandGroup.CanExecuteChanged")]
+[assembly: SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1600:Elements should be documented", Justification = "<Oczekujące>", Scope = "member", Target = "~M:Desktop_translator.Core.CommandGroup.#ctor(System.Collections.Generic.IEnumerable{System.Windows.Input.ICommand})")]
+[assembly: SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1611:Element parameters should be documented", Justification = "<Oczekujące>", Scope = "member", Target = "~M:Desktop_translator.Core.ObservableObject.OnPropertyChanged(System.String)")]
+[assembly: SuppressMessage("StyleCop.CSharp.OrderingRules", "SA1201:Elements should appear in the correct order", Justification = "<Oczekujące>", Scope = "member", Target = "~M:Desktop_translator.Core.RelayCommand.#ctor(System.Action{System.Object},System.Func{System.Object,System.Boolean})")]
+[assembly: SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1600:Elements should be documented", Justification = "<Oczekujące>", Scope = "member", Target = "~M:Desktop_translator.Core.RelayCommand.#ctor(System.Action{System.Object},System.Func{System.Object,System.Boolean})")]
+[assembly: SuppressMessage("StyleCop.CSharp.OrderingRules", "SA1202:Elements should be ordered by access", Justification = "<Oczekujące>", Scope = "member", Target = "~F:Desktop_translator.App.DbPath")]
+[assembly: SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1401:Fields should be private", Justification = "<Oczekujące>", Scope = "member", Target = "~F:Desktop_translator.App.DbPath")]
+[assembly: SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1600:Elements should be documented", Justification = "<Oczekujące>", Scope = "member", Target = "~F:Desktop_translator.App.DbPath")]
+[assembly: SuppressMessage("StyleCop.CSharp.ReadabilityRules", "SA1115:Parameter should follow comma", Justification = "<Oczekujące>")]

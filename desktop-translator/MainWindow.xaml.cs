@@ -1,30 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Desktop_translator.MVVM.Model;
-using Desktop_translator.MVVM.ViewModel;
+﻿// <copyright file="MainWindow.xaml.cs" company="Piasta-company">
+// Copyright (c) Piasta-company. All rights reserved.
+// </copyright>
 
 namespace Desktop_translator
 {
+    using System.Windows;
+    using System.Windows.Input;
+
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for MainWindow.xaml.
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MainWindow"/> class.
+        /// </summary>
         public MainWindow()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
 
         private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -32,19 +25,19 @@ namespace Desktop_translator
             this.DragMove();
         }
 
-        private void exit_bt_close(object sender, MouseButtonEventArgs e)
+        private void Exit_bt_close(object sender, MouseButtonEventArgs e)
         {
             System.Environment.Exit(0);
         }
 
-        private void min_bt_minimalize(object sender, MouseButtonEventArgs e)
+        private void Min_bt_minimalize(object sender, MouseButtonEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
         }
 
-        private void max_bt_maximalize(object sender, MouseButtonEventArgs e)
+        private void Max_bt_maximalize(object sender, MouseButtonEventArgs e)
         {
-            if(WindowState == WindowState.Normal)
+            if (this.WindowState == WindowState.Normal)
             {
                 this.WindowState = WindowState.Maximized;
             }
@@ -53,17 +46,18 @@ namespace Desktop_translator
                 this.WindowState = WindowState.Normal;
             }
         }
-        private void pin_bt_topmost(object sender, MouseButtonEventArgs e)
+
+        private void Pin_bt_topmost(object sender, MouseButtonEventArgs e)
         {
             this.Topmost = !this.Topmost;
 
             if (this.Topmost == true)
             {
-                pin_dot.Style = (Style)FindResource("pin_bt_on_content");
+                this.pin_dot.Style = (Style)this.FindResource("pin_bt_on_content");
             }
             else
             {
-                pin_dot.Style = (Style)FindResource("pin_bt_off_content");
+                this.pin_dot.Style = (Style)this.FindResource("pin_bt_off_content");
             }
         }
     }

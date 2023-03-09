@@ -1,31 +1,36 @@
-﻿namespace Desktop_translator.Core
+﻿// <copyright file="CommandGroup.cs" company="Piasta-company">
+// Copyright (c) Piasta-company. All rights reserved.
+// </copyright>
+
+namespace Desktop_translator.Core
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using System.Windows.Input;
 
+    /// <summary>
+    /// Class responsible for collecting several commands under one.
+    /// </summary>
     public class CommandGroup : ICommand
     {
-        private readonly List<ICommand> _commands;
+        private readonly List<ICommand> commands;
 
         public CommandGroup(IEnumerable<ICommand> commands)
         {
-            _commands = commands.ToList();
+            this.commands = commands.ToList();
         }
 
         /// <inheritdoc/>
-        public bool CanExecute(object parameter)
+        bool ICommand.CanExecute(object parameter)
         {
-            return _commands.Any(c => c.CanExecute(parameter));
+            return this.commands.Any(c => c.CanExecute(parameter));
         }
 
         /// <inheritdoc/>
-        public void Execute(object parameter)
+        void ICommand.Execute(object parameter)
         {
-            foreach (var command in _commands)
+            foreach (var command in this.commands)
             {
                 if (command.CanExecute(parameter))
                 {
@@ -39,14 +44,15 @@
         {
             add
             {
-                foreach (var command in _commands)
+                foreach (var command in this.commands)
                 {
                     command.CanExecuteChanged += value;
                 }
             }
+
             remove
             {
-                foreach (var command in _commands)
+                foreach (ICommand command in this.commands)
                 {
                     command.CanExecuteChanged -= value;
                 }
