@@ -179,7 +179,7 @@ namespace Desktop_translator.MVVM.Model
             if (!this.isChecked && string.IsNullOrEmpty(this.fromLanguageKey))
             {
                 this.FromLanguageKey = "Not selected";
-                this.fromLanguageValue = "";
+                this.fromLanguageValue = string.Empty;
             }
 
             if (!this.isChecked && !string.IsNullOrEmpty(this.fromLanguageKey) && this.fromLanguageKey != "Not selected")
