@@ -79,7 +79,7 @@ namespace Desktop_translator.MVVM.ViewModel
 
             this.CurrentView = this.TranslateVM;
 
-            this.TranslateViewCommand = new RelayCommand(o => 
+            this.TranslateViewCommand = new RelayCommand(o =>
             {
                 this.CurrentView = this.TranslateVM;
                 this.TranslateVM.TranslateModel.LanguagesValidation();

@@ -52,7 +52,6 @@ namespace Desktop_translator.MVVM.Model
             }
         }
 
-
         private bool isChecked = true;
 
         /// <summary>

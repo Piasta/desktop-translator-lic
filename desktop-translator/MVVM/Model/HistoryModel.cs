@@ -22,7 +22,6 @@ namespace Desktop_translator.MVVM.Model
         {
             if (!string.IsNullOrEmpty(typedText) && !string.IsNullOrEmpty(translatedText))
             {
-
                 string dbPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "HistoryDB.db");
                 SQLiteConnection m_dbConnection = new SQLiteConnection("Data Source=" + dbPath + ";Version=3;");
                 m_dbConnection.Open();
