@@ -34,13 +34,13 @@ namespace Desktop_translator.MVVM.ViewModel
         {
             get
             {
-                return historyModel;
+                return this.historyModel;
             }
 
             set
             {
                 this.historyModel = value;
-                OnPropertyChanged(nameof(this.HistoryModel));
+                this.OnPropertyChanged(nameof(this.HistoryModel));
             }
         }
 
