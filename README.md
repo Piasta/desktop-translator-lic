@@ -1,9 +1,10 @@
 <div align="center">
-  <img src="./desktop-translator/Images/EaZy_Talk.png" width="150" height="150" />
+  <img src="./desktop-translator/Images/EaZy_Talk.png" width="150"/>
+  <h1> EaZy Talk </h1>
 </div>
 
-# EaZy Talk
 EaZy Talk is a translator C# WPF application created by using the MVVM pattern.
+
 ## Table of Contents
 * [General Info](#general-information)
 * [Technologies Used](#technologies-used)
@@ -15,7 +16,7 @@ EaZy Talk is a translator C# WPF application created by using the MVVM pattern.
 * [Project Status](#project-status)
 * [Room for Improvement](#room-for-improvement)
 * [Acknowledgements](#acknowledgements)
-* [Contact](#contact)
+* [Creator](#creator)
 <!-- * [License](#license) -->
 
 
