@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Desktop_translator.MVVM.ViewModel.MainViewModel">
-    <Position X="0.75" Y="6.75" Width="2" />
+    <Position X="2.75" Y="6.75" Width="2" />
     <TypeIdentifier>
       <HashCode>gAAAAAICAAAAAhEAAAIAACAQAAAAAAAAAAAAAAAgIIA=</HashCode>
       <FileName>MVVM\ViewModel\MainViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Desktop_translator.Core.ObservableObject">
-    <Position X="9.25" Y="4.5" Width="1.75" />
+    <Position X="6.75" Y="3.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Core\ObservableObject.cs</FileName>
@@ -16,7 +16,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="System.Object">
-    <Position X="13.25" Y="1.25" Width="1.75" />
+    <Position X="10.25" Y="0.5" Width="1.75" />
     <TypeIdentifier />
   </Class>
   <Class Name="Desktop_translator.MVVM.ViewModel.TranslateViewModel">
@@ -27,14 +27,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Desktop_translator.MVVM.Model.HistoryModel">
-    <Position X="8" Y="6.75" Width="1.5" />
+    <Position X="8.5" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAgAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
       <FileName>MVVM\Model\HistoryModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Desktop_translator.Core.CommandGroup">
-    <Position X="20.5" Y="4.5" Width="2" />
+    <Position X="12.25" Y="3.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAICAAAAAAQAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
       <FileName>Core\CommandGroup.cs</FileName>
@@ -42,7 +42,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Desktop_translator.Core.RelayCommand">
-    <Position X="23.25" Y="4.5" Width="1.75" />
+    <Position X="14.5" Y="3.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAACAAQAAEAEAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Core\RelayCommand.cs</FileName>
@@ -50,41 +50,41 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Desktop_translator.Properties.Resources">
-    <Position X="25.75" Y="4.5" Width="1.75" />
+    <Position X="16.5" Y="3.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
     </TypeIdentifier>
   </Class>
   <Class Name="Desktop_translator.MVVM.Model.OptionsModel">
-    <Position X="3.5" Y="6.75" Width="1.5" />
+    <Position X="5" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACAAAAAACAIAAQgCAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MVVM\Model\OptionsModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Desktop_translator.MVVM.Model.TranslateModel">
-    <Position X="13" Y="6.75" Width="1.75" />
+    <Position X="12.5" Y="6.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AiAAIAAAACAIAAAQEUAAAAFAAAAAQAAAEABEIAIAQAA=</HashCode>
       <FileName>MVVM\Model\TranslateModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Desktop_translator.MVVM.ViewModel.HistoryViewModel">
-    <Position X="15.5" Y="6.75" Width="1.75" />
+    <Position X="14.5" Y="6.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAEAACgAAAAoAAAAAAAAAAAAAAAEAAAAAAAAAAAABAA=</HashCode>
       <FileName>MVVM\ViewModel\HistoryViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Desktop_translator.MVVM.ViewModel.InfoViewModel">
-    <Position X="5.75" Y="6.75" Width="1.5" />
+    <Position X="6.75" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MVVM\ViewModel\InfoViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Desktop_translator.MVVM.ViewModel.OptionsViewModel">
-    <Position X="18" Y="6.75" Width="1.75" />
+    <Position X="16.5" Y="6.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAQAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MVVM\ViewModel\OptionsViewModel.cs</FileName>
