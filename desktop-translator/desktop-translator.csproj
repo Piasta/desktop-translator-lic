@@ -201,6 +201,12 @@
     <Content Include="HistoryDB.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Images\Screenshots\History_shot.png" />
+    <Resource Include="Images\Screenshots\Info_shot.png" />
+    <Resource Include="Images\Screenshots\Options_shot.png" />
+    <Resource Include="Images\Screenshots\Translate_shot.png" />
+    <Resource Include="Images\Screenshots\UML_diagram.png" />
+    <Resource Include="Images\Screenshots\UML_diagram_nbg.png" />
     <Content Include="packages.config">
       <SubType>Designer</SubType>
     </Content>
