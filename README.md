@@ -13,9 +13,7 @@ EaZy Talk is a translator C# WPF application created by using the MVVM pattern.
 * [UML diagram](#uml-diagram)
 * [Setup](#setup)
 * [Usage](#usage)
-* [Project Status](#project-status)
 * [Room for Improvement](#room-for-improvement)
-* [Acknowledgements](#acknowledgements)
 * [Creator](#creator)
 <!-- * [License](#license) -->
 
@@ -27,6 +25,7 @@ EaZy Talk is a translator C# WPF application created by using the MVVM pattern.
 - I started getting in C# when time to choose a topic was came. So I decided to go in this and develop my skills.
 
 ## Technologies Used
+- [Visual Studio](https://www.kunal-chowdhury.com/2015/07/download-visualstudio-2015.html) - version 2015
 - [.NETFramework](https://learn.microsoft.com/pl-pl/dotnet/) - version 4.5.2
 - [SQLite](https://sqlite.org/) - version 1.0.117.0
 - [Google Translate API](https://cloud.google.com/translate) - version 2.0
@@ -50,49 +49,23 @@ EaZy Talk is a translator C# WPF application created by using the MVVM pattern.
 <img src="./desktop-translator/Images/Screenshots/Options_shot.png"/>
 
 
-## UML diagram
-<img src="./desktop-translator/Images/Screenshots/UML_diagram_nbg.png"/>
-
-
 ## Setup
-What are the project requirements/dependencies? Where are they listed? A requirements.txt or a Pipfile.lock file perhaps? Where is it located?
+In NuGet Package Manager console
 
-Proceed to describe how to install / setup one's local environment / get started with the project.
+```
+git clone https://github.com/Piasta/desktop-translator-lic.git
 
-
+Update-Package
+```
 ## Usage
-How does one go about using it?
-Provide various use cases and code examples here.
-
-`write-your-code-here`
+After run, choose **to language** from **options** and type your sentence.
 
 
-## Project Status
-Project is: _in progress_ / _complete_ / _no longer being worked on_. If you are no longer working on it, provide reasons why.
+## Improvements
 
-
-## Room for Improvement
-Include areas you believe need improvement / could be improved. Also add TODOs for future development.
-
-Room for improvement:
-- Improvement to be done 1
-- Improvement to be done 2
-
-To do:
-- Feature to be added 1
-- Feature to be added 2
-
-
-## Acknowledgements
-Give credit here.
-- This project was inspired by...
-- This project was based on [this tutorial](https://www.example.com).
-- Many thanks to...
+To improve:
+- Auto get value from clipboard and translate when user copy text by HotKey.
 
 
 ## Creator
-Created by [Piasta](https://github.com/Piasta/).
-
-
-<!-- Optional -->
-<!-- ## License -->
+>Created by [Piasta](https://github.com/Piasta/).
