@@ -10,10 +10,9 @@ EaZy Talk is a translator C# WPF application created by using the MVVM pattern.
 * [Technologies Used](#technologies-used)
 * [Features](#features)
 * [Screenshots](#screenshots)
-* [UML diagram](#uml-diagram)
 * [Setup](#setup)
 * [Usage](#usage)
-* [Room for Improvement](#room-for-improvement)
+* [Improvement](#room-for-improvement)
 * [Creator](#creator)
 <!-- * [License](#license) -->
 
