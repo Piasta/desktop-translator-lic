@@ -150,6 +150,7 @@ namespace Desktop_translator.MVVM.Model
         private readonly OptionsModel optionsModel = new OptionsModel();
         private readonly Cache cache = HttpRuntime.Cache;
 
+
         /// <summary>
         /// Data validation for Translate method.
         /// </summary>
