@@ -144,7 +144,6 @@ namespace Desktop_translator.MVVM.Model
             {
                 this.fromLanguageValue = value;
                 this.OnPropertyChanged(nameof(this.FromLanguageValue));
-                Console.WriteLine("Translate model From language value = " + this.FromLanguageValue);
             }
         }
 
