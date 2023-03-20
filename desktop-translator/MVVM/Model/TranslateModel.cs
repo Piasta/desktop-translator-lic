@@ -156,7 +156,6 @@ namespace Desktop_translator.MVVM.Model
         /// </summary>
         public void LanguagesValidation()
         {
-
             this.FromLanguageKey = (string)this.cache.Get("fromLanguage");
             this.ToLanguageKey = (string)this.cache.Get("toLanguage");
 
